@@ -1,12 +1,14 @@
 import * as React from "react";
 import About from "./About";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function Home() {
     return (
-        <>
-            <div className="main-content mx-auto img-fluid contianer-fluid">
-                <About />
-            </div>
-        </>
+        <main>
+            <Header />
+            <About />
+            <Footer />
+        </main>
     );
 }
