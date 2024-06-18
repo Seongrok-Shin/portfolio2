@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import '../scss/custom.scss';
 import 'dotenv/config';
 import { FaLinkedin } from "react-icons/fa6";
-import TypeAnimation from "../components/TypeAnimation";
+import TypeAnimation from "../components/Typing";
 
 const styleIcon = { color: "black", fontSize: "2em" };
 
