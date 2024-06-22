@@ -62,14 +62,10 @@ nav li {
 }
 
 nav a {
-  color: white;
+  color: #444;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 14px;
-}
-
-nav a:hover {
-  color: white;
 }
 
 nav a::after {

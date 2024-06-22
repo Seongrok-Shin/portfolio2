@@ -1,19 +1,16 @@
 import React from "react";
-import { FaGithub, FaMailBulk } from "react-icons/fa";
 import Fade from "../components/Fade";
 import { motion } from "framer-motion";
 import '../scss/custom.scss';
 import 'dotenv/config';
-import { FaLinkedin } from "react-icons/fa6";
 import TypeAnimation from "../components/Typing";
+import Icon from "../icon/Icon";
 
-const styleIcon = { color: "black", fontSize: "2em" };
-
-const About = () => {
+export default function About() {
     return (
-        <div className="container-fluid px-5 py-5 my-5 bg-white">
+        <div className="container-fluid py-5 my-5 bg-white d-flex align-items-center justify-content-center" id="about" style={{ height: "100vh" }}>
             <div className="text-center">
-                <img src={process.env.REACT_APP_AVATAR} alt="background" className="img-fluid rounded-circle" style={{ width: "300px", height: "300px" }} />
+                <img src={process.env.REACT_APP_AVATAR} alt="Avatar" className="img-fluid rounded-circle" style={{ width: "300px", height: "300px" }} />
                 <Fade isActive={true} movement={-30}>
                     <span className="p-5" />
                     <h1 className="fw-bold">{process.env.REACT_APP_NAME}</h1>
@@ -27,7 +24,7 @@ const About = () => {
                         exit={{ scale: 0 }}
                         transition={{ delay: 1, type: "spring", stiffness: 400, damping: 20 }}>
                         <a href={`mailto:${process.env.REACT_APP_EMAIL}`}>
-                            <FaMailBulk style={styleIcon} />
+                            <Icon color="#222" fontSize="1.5em" name="mail" />
                         </a>
                     </motion.p>
                     <motion.p
@@ -37,7 +34,7 @@ const About = () => {
                         transition={{ delay: 1.5, type: "spring", stiffness: 400, damping: 20 }}
                     >
                         <a className="p-4" href={process.env.REACT_APP_GIT_HUB}>
-                            <FaGithub style={styleIcon} />
+                            <Icon color="#222" fontSize="1.5em" name="github" />
                         </a>
                     </motion.p>
                     <motion.p
@@ -46,7 +43,7 @@ const About = () => {
                         exit={{ scale: 0 }}
                         transition={{ delay: 2, type: "spring", stiffness: 400, damping: 20 }}>
                         <a href={process.env.REACT_APP_LINKEDIN}>
-                            <FaLinkedin style={styleIcon} />
+                            <Icon color="#222" fontSize="1.5em" name="linkedin" />
                         </a>
                     </motion.p>
                 </div>
@@ -54,6 +51,3 @@ const About = () => {
         </div>
     );
 };
-
-export default About;
-
