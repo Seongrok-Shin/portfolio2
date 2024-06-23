@@ -71,7 +71,6 @@ export default function About() {
                     Resume
                 </button>
             </div>
-            <span className="p-3"></span>
             {isSkillsVisible && <Skills />}
         </div>
     );
