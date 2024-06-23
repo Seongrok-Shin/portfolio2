@@ -8,7 +8,7 @@ const FadeIcon = ({ children, isActive }) => {
             {isActive && (
                 <motion.div
                     initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                    animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 10 }}
                 >
