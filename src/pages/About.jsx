@@ -1,20 +1,22 @@
 import React from "react";
-import Fade from "../components/Fade";
+import FadeText from "../components/FadeInText";
 import { motion } from "framer-motion";
 import '../scss/custom.scss';
 import 'dotenv/config';
 import TypeAnimation from "../components/Typing";
 import Icon from "../icon/Icon";
+import Skills from "./Skills";
+import FadeIcon from "../components/FadeIAOIcon";
 
 export default function About() {
     return (
         <div className="container-fluid py-5 my-5 bg-white d-flex align-items-center justify-content-center" id="about" style={{ height: "100vh" }}>
             <div className="text-center">
                 <img src={process.env.REACT_APP_AVATAR} alt="Avatar" className="img-fluid rounded-circle" style={{ width: "300px", height: "300px" }} />
-                <Fade isActive={true} movement={-30}>
+                <FadeText isActive={true} movement={-30}>
                     <span className="p-5" />
                     <h1 className="fw-bold">{process.env.REACT_APP_NAME}</h1>
-                </Fade>
+                </FadeText>
                 <TypeAnimation />
                 <span className="p-5" />
                 <div className="d-flex flex-row justify-content-center align-items-center">
@@ -47,7 +49,10 @@ export default function About() {
                         </a>
                     </motion.p>
                 </div>
+                <FadeIcon isActive={true}>
+                    <Skills />
+                </FadeIcon>
             </div>
-        </div>
+        </div >
     );
 };

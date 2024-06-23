@@ -5,43 +5,30 @@ import 'bootstrap/dist/js/bootstrap.bundle.min';
 
 const Skills = () => {
     return (
-        <div className="mb-1 container-fluid" style={{ backgroundColor: "#222", height: "100vh" }} id="skills">
-            <h1 className="text-center text-white fw-bold" style={{ fontFamily: "'Roboto', sans-serif" }}>
-                My Skills
-            </h1>
-            <div className="d-flex justify-content-center align-items-center py-5" >
-                <div className="card p-5" style={{ backgroundColor: "#1a1816" }}>
-                    <div className="card-body ">
-                        <h2 className="card-title text-center text-white fw-bold" style={{ fontFamily: "'Roboto', sans-serif" }}>Web Development</h2>
-                        <p className="card-text justify-content-center" >
-                            <Icon name="html" hoverColor={"orange"} color={"white"} fontSize={"3em"} />
-                            &nbsp;
-                            <Icon name="javascript" hoverColor={"yellow"} color={"white"} fontSize={"3em"} />
-                            &nbsp;
-                            <Icon name="react" hoverColor={"skyblue"} color={"white"} fontSize={"3em"} />
-                            &nbsp;
-                            <Icon name="reactnative" hoverColor={"skyblue"} color={"white"} fontSize={"3em"} />
-                            &nbsp;
-                            <Icon name="next" hoverColor={"black"} color={"white"} fontSize={"3em"} />
-                            &nbsp;
-                            <Icon name="bootstrap" hoverColor={"purple"} color={"white"} fontSize={"3em"} />
-                            &nbsp;
-                            <Icon name="tailwindcss" hoverColor={"skyblue"} color={"white"} fontSize={"3em"} />
-                            <Icon name="html" hoverColor={"orange"} color={"white"} fontSize={"3em"} />
-                            &nbsp;
-                            <Icon name="javascript" hoverColor={"yellow"} color={"white"} fontSize={"3em"} />
-                            &nbsp;
-                            <Icon name="react" hoverColor={"skyblue"} color={"white"} fontSize={"3em"} />
-                            &nbsp;
-                            <Icon name="reactnative" hoverColor={"skyblue"} color={"white"} fontSize={"3em"} />
-                            &nbsp;
-                            <Icon name="next" hoverColor={"black"} color={"white"} fontSize={"3em"} />
-                            &nbsp;
-                            <Icon name="bootstrap" hoverColor={"purple"} color={"white"} fontSize={"3em"} />
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <div>
+            <p>
+                <Icon name="html" hoverColor={"orange"} color={"gray"} fontSize={"2.5em"} />
+                <Icon name="javascript" hoverColor={"yellow"} color={"gray"} fontSize={"2.5em"} />
+                <Icon name="react" hoverColor={"skyblue"} color={"gray"} fontSize={"2.5em"} />
+                <Icon name="expo" hoverColor={"black"} color={"gray"} fontSize={"2.5em"} />
+                <Icon name="reactnative" hoverColor={"skyblue"} color={"gray"} fontSize={"2.5em"} />
+                <Icon name="next" hoverColor={"black"} color={"gray"} fontSize={"2.5em"} />
+                <Icon name="bootstrap" hoverColor={"purple"} color={"gray"} fontSize={"2.5em"} />
+                <Icon name="tailwindcss" hoverColor={"skyblue"} color={"gray"} fontSize={"2.5em"} />
+                <Icon name="node" hoverColor={"green"} color={"gray"} fontSize={"2.5em"} />
+            </p>
+            <p>
+                <Icon name="java" hoverColor={"orange"} color={"gray"} fontSize={"2.5em"} />
+                <Icon name="php" hoverColor={"purple"} color={"gray"} fontSize={"2.5em"} />
+                <Icon name="mongo" hoverColor={"green"} color={"gray"} fontSize={"2.5em"} />
+                <Icon name="firebase" hoverColor={"orange"} color={"gray"} fontSize={"2.5em"} />
+                <Icon name="mysql" hoverColor={"blue"} color={"gray"} fontSize={"2.5em"} />
+                <Icon name="r" hoverColor={"skyblue"} color={"gray"} fontSize={"2.5em"} />
+                <Icon name="python" hoverColor={"blue"} color={"gray"} fontSize={"2.5em"} />
+                <Icon name="rstudio" hoverColor={"skyblue"} color={"gray"} fontSize={"2.5em"} />
+                <Icon name="git" hoverColor={"orange"} color={"gray"} fontSize={"2.5em"} />
+                <Icon name="github" hoverColor={"black"} color={"gray"} fontSize={"2.5em"} />
+            </p>
         </div>
     );
 };

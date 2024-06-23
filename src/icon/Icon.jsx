@@ -20,9 +20,10 @@ import {
   SiTailwindcss,
 } from "react-icons/si";
 import { TbBrandNextjs, TbBrandReactNative } from "react-icons/tb";
-import { FaC, FaPhp } from "react-icons/fa6";
+import { FaC, FaDocker, FaNodeJs, FaPhp } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { CgMenuMotion } from "react-icons/cg";
+import { DiMongodb } from "react-icons/di";
 
 const iconMap = {
   github: <FaGithub />,
@@ -46,6 +47,9 @@ const iconMap = {
   tailwindcss: <SiTailwindcss />,
   html: <FaHtml5 />,
   nav: <CgMenuMotion className="img-fluid position-absolute top-0 start-0 fixed-top my-2 mx-3" />,
+  mongo: <DiMongodb />,
+  node: <FaNodeJs />,
+  docker: <FaDocker />,
 };
 
 export default function Icon({ hoverColor, color, fontSize, name }) {
