@@ -3,30 +3,77 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight:800;
-    font-size: 2.5em;
-    letter-spacing: -0.5px;
-}
-strong {
-    font-family: 'Roboto', sans-serif;
-    opacity: 0.7;
-    letter-spacing: -0.5px;
-}
-a{
-    font-family: 'Open Sans', sans-serif;
-}
+@import "~bootstrap/scss/mixins/banner";
+@include bsBanner("");
+
+// scss-docs-start import-stack
+// Configuration
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/maps";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/utilities";
+
+// Layout & components
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/images";
+@import "~bootstrap/scss/containers";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/forms";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/transitions";
+@import "~bootstrap/scss/dropdown";
+@import "~bootstrap/scss/button-group";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/card";
+
+@import "~bootstrap/scss/accordion";
+@import "~bootstrap/scss/breadcrumb";
+
+@import "~bootstrap/scss/pagination";
+@import "~bootstrap/scss/badge";
+@import "~bootstrap/scss/alert";
+@import "~bootstrap/scss/progress";
+@import "~bootstrap/scss/list-group";
+@import "~bootstrap/scss/close";
+@import "~bootstrap/scss/toasts";
+@import "~bootstrap/scss/modal";
+@import "~bootstrap/scss/tooltip";
+@import "~bootstrap/scss/popover";
+@import "~bootstrap/scss/carousel";
+@import "~bootstrap/scss/spinners";
+@import "~bootstrap/scss/offcanvas";
+@import "~bootstrap/scss/placeholders";
+
+// Helpers
+@import "~bootstrap/scss/helpers";
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "font-size":
+      map-merge(
+        map-get($utilities, "font-size"),
+        (
+          responsive: true
+        )
+      )
+  )
+);
 
 body {
-	margin: 0;
+  margin: 0;
 	background: #222;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 800;
 }
 
 .container {
-	width: 80%;
+  width: 80%;
 	margin: 0 auto;
 }
 
@@ -62,29 +109,30 @@ nav li {
 }
 
 nav a {
-  color: #666;
+  color: white;
   text-decoration: none;
   text-transform: uppercase;
   font-size: 15px;
 }
 
 nav a:hover {
-  color: white;
+  color: #666;
 }
 
 nav a::after {
   content: '';
   display: block;
   height: 5px;
-  background-color: white;
-
+  background-color: #666;
+  
   position: absolute;
   top: -50;
   width: 0%;
-
+  
   transition: all ease-in-out 250ms;
 }
 
 nav a:hover::after {
   width: 100%;
 }
+@import "~bootstrap/scss/utilities/api";

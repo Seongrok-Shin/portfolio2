@@ -1,0 +1,18 @@
+.skills-container {
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-container {
+    margin: 3px;
+}
+
+@media (max-width: 768px) {
+    .skills-container {
+        flex-direction: column;
+        column-count: 1;
+    }
+}
