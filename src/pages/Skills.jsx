@@ -1,30 +1,56 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Icon from "../icon/Icon";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
+import "./Skills.css"; // Import any necessary CSS for styling
 
 const Skills = () => {
+    const [iconNames, setIconNames] = useState([
+        "html", "javascript", "react", "expo", "reactnative", "next",
+        "bootstrap", "tailwindcss", "node", "java", "php", "mongo",
+        "firebase", "mysql", "r", "python", "rstudio", "git", "github"
+    ]);
+
+    const isMobile = useCallback(() => {
+        return window.innerWidth <= 768; // Adjust breakpoint as needed
+    }, []);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIconNames(prevIconNames => {
+                const newIconNames = [...prevIconNames];
+                newIconNames.unshift(newIconNames.pop());
+                return newIconNames;
+            });
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
+
     return (
-        <div id="skills">
-            <Icon name="html" hoverColor={"orange"} color={"gray"} fontSize={"2em"} />
-            <Icon name="javascript" hoverColor={"yellow"} color={"gray"} fontSize={"2em"} />
-            <Icon name="react" hoverColor={"skyblue"} color={"gray"} fontSize={"2em"} />
-            <Icon name="expo" hoverColor={"black"} color={"gray"} fontSize={"2em"} />
-            <Icon name="reactnative" hoverColor={"skyblue"} color={"gray"} fontSize={"2em"} />
-            <Icon name="next" hoverColor={"black"} color={"gray"} fontSize={"2em"} />
-            <Icon name="bootstrap" hoverColor={"purple"} color={"gray"} fontSize={"2em"} />
-            <Icon name="tailwindcss" hoverColor={"skyblue"} color={"gray"} fontSize={"2em"} />
-            <Icon name="node" hoverColor={"green"} color={"gray"} fontSize={"2em"} />
-            <Icon name="java" hoverColor={"orange"} color={"gray"} fontSize={"2em"} />
-            <Icon name="php" hoverColor={"purple"} color={"gray"} fontSize={"2em"} />
-            <Icon name="mongo" hoverColor={"green"} color={"gray"} fontSize={"2em"} />
-            <Icon name="firebase" hoverColor={"orange"} color={"gray"} fontSize={"2em"} />
-            <Icon name="mysql" hoverColor={"blue"} color={"gray"} fontSize={"2em"} />
-            <Icon name="r" hoverColor={"skyblue"} color={"gray"} fontSize={"2em"} />
-            <Icon name="python" hoverColor={"blue"} color={"gray"} fontSize={"2em"} />
-            <Icon name="rstudio" hoverColor={"skyblue"} color={"gray"} fontSize={"2em"} />
-            <Icon name="git" hoverColor={"orange"} color={"gray"} fontSize={"2em"} />
-            <Icon name="github" hoverColor={"black"} color={"gray"} fontSize={"2em"} />
+        <div id="skills" className="skills-container">
+            <AnimatePresence initial={false}>
+                {iconNames.map((name, index) => (
+                    <motion.div
+                        key={name}
+                        className="icon-container"
+                        initial={{ opacity: 0, x: isMobile() ? 0 : -200 }}
+                        animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
+                        exit={{ opacity: 0, x: isMobile() ? 0 : 200, transition: { duration: 0.5 } }}
+                        transition={{ delay: index * 0.5, duration: 1, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
+                    >
+                        <Icon
+                            name={name}
+                            color={{
+                                html: "orange", javascript: "yellow", react: "skyblue", expo: "black",
+                                reactnative: "skyblue", next: "black", bootstrap: "purple", tailwindcss: "skyblue",
+                                node: "green", java: "orange", php: "purple", mongo: "green", firebase: "orange",
+                                mysql: "blue", r: "skyblue", python: "blue", rstudio: "skyblue", git: "orange", github: "black"
+                            }[name]}
+                            fontSize={"2em"}
+                        />
+                    </motion.div>
+                ))}
+            </AnimatePresence>
         </div>
     );
 };

@@ -25,7 +25,7 @@ export default function TypeAnimation() {
                     wrapper="span"
                     cursor={true}
                     repeat={Infinity}
-                    style={{ fontSize: '1.2em', display: 'inline-block' }}
+                    style={{ fontFamily: "'Open Sans', sans-serif", color: "#666" }}
                 />
             </strong>
         </div>
