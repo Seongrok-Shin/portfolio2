@@ -25,16 +25,16 @@ const Header = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navDropdown">
                         <ul className="navbar-nav ms-auto">
-                            <li>
+                            <li className="nav-item">
                                 <a href="#about">About</a>
                             </li>
-                            <li>
+                            <li className="nav-item">
                                 <a href="#experience">Experience</a>
                             </li>
-                            <li>
+                            <li className="nav-item">
                                 <a href="#education">Education</a>
                             </li>
-                            <li>
+                            <li className="nav-item">
                                 <a href="#projects">Projects</a>
                             </li>
                         </ul>
