@@ -19,12 +19,12 @@ export default function About() {
     };
 
     return (
-        <div className="container-fluid bg-white d-flex flex-column justify-content-center align-items-center" id="about" style={{ height: "100vh" }}>
+        <section className="container-fluid bg-white d-flex flex-column justify-content-center align-items-center" id="about" style={{ height: "100vh" }}>
             <div>
                 <img src={process.env.REACT_APP_AVATAR} alt="Avatar" className="img-fluid rounded-circle" style={{ width: "300px", height: "300px" }} />
             </div>
             <div>
-                <FadeText isActive={true} movement={-30}>
+                <FadeText isActive={true} directionY={-30} setTime={1}>
                     <span className="p-5" />
                     <h1 className="fw-bold" style={{ fontFamily: "'lato', sans-serif" }}>{process.env.REACT_APP_NAME}</h1>
                 </FadeText>
@@ -63,15 +63,23 @@ export default function About() {
                 </motion.p>
             </div>
             <div className="d-flex justify-content-center align-items-center">
-                <button className="btn" href="#skills" onClick={toggleSkillsVisibility} style={{ background: "#222", color: "white", fontFamily: "lato", height: "50px", width: "100px" }}>
+                <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="btn" href="#skills" onClick={toggleSkillsVisibility}
+                    style={{ background: "#222", color: "white", fontFamily: "lato", height: "50px", width: "100px" }}>
                     Skills
-                </button>
+                </motion.button>
                 <span className="p-3"></span>
-                <button className="btn" onClick={toggleResume} style={{ background: "#222", color: "white", fontFamily: "lato", height: "50px", width: "100px" }}>
+                <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="btn" onClick={toggleResume}
+                    style={{ background: "#222", color: "white", fontFamily: "lato", height: "50px", width: "100px" }}>
                     Resume
-                </button>
+                </motion.button>
             </div>
             {isSkillsVisible && <Skills />}
-        </div>
+        </section>
     );
 };

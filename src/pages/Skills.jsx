@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Icon from "../icon/Icon";
-import "./Skills.css"; // Import any necessary CSS for styling
+import "./../scss/custom.scss";
 
 const Skills = () => {
     const [iconNames, setIconNames] = useState([
@@ -11,7 +11,7 @@ const Skills = () => {
     ]);
 
     const isMobile = useCallback(() => {
-        return window.innerWidth <= 768; // Adjust breakpoint as needed
+        return window.innerWidth < 768; // Adjust breakpoint as needed
     }, []);
 
     useEffect(() => {
@@ -27,15 +27,15 @@ const Skills = () => {
     }, []);
 
     return (
-        <div id="skills" className="skills-container">
+        <section id="skills" className="skills-container">
             <AnimatePresence initial={false}>
                 {iconNames.map((name, index) => (
                     <motion.div
                         key={name}
                         className="icon-container"
-                        initial={{ opacity: 0, x: isMobile() ? 0 : -200 }}
+                        initial={{ opacity: 0, x: -200 }}
                         animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
-                        exit={{ opacity: 0, x: isMobile() ? 0 : 200, transition: { duration: 0.5 } }}
+                        exit={{ opacity: 0, x: 200, transition: { duration: 0.5 } }}
                         transition={{ delay: index * 0.5, duration: 1, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
                     >
                         <Icon
@@ -46,12 +46,12 @@ const Skills = () => {
                                 node: "green", java: "orange", php: "purple", mongo: "green", firebase: "orange",
                                 mysql: "blue", r: "skyblue", python: "blue", rstudio: "skyblue", git: "orange", github: "black"
                             }[name]}
-                            fontSize={"2em"}
+                            fontSize={isMobile() ? "1.5em" : "2em"}
                         />
                     </motion.div>
                 ))}
             </AnimatePresence>
-        </div>
+        </section>
     );
 };
 
