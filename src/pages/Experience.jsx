@@ -29,7 +29,7 @@ const Experience = () => {
             style={{ height: "100vh", backgroundColor: "#222" }}
         >
             <div className="experience">
-                <h1>
+                <h1 className="rounded">
                     Event Experience
                 </h1>
                 <span></span>
@@ -70,7 +70,7 @@ const Experience = () => {
                         </FadeText>
                     </div>
                 )}
-                <h1 className="mt-5">
+                <h1 className="mt-5 rounded">
                     Professional Experience
                 </h1>
                 {isScrolled && (
