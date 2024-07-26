@@ -232,4 +232,14 @@ nav a:hover::after {
   }
 }
 
+.avatar {
+  @media screen and (max-width: 768px), (max-height: 601px) {
+    width: 200px;
+    height: 200px;
+  }
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 2px solid #222;
+}
 @import "~bootstrap/scss/utilities/api";

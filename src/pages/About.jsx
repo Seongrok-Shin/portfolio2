@@ -1,19 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import FadeText from "../components/FadeInText";
 import { motion } from "framer-motion";
 import '../scss/custom.scss';
 import 'dotenv/config';
 import TypeAnimation from "../components/Typing";
 import Icon from "../icon/Icon";
-import Skills from "./Skills";
 
 export default function About() {
-    const [isSkillsVisible, setIsSkillsVisible] = useState(false);
-
-    const toggleSkillsVisibility = () => {
-        setIsSkillsVisible(!isSkillsVisible);
-    };
-
     const toggleResume = () => {
         window.open(process.env.REACT_APP_CV, "_blank");
     };
@@ -21,7 +14,7 @@ export default function About() {
     return (
         <section className="container-fluid bg-white d-flex flex-column justify-content-center align-items-center" id="about" style={{ height: "100vh" }}>
             <div>
-                <img src={process.env.REACT_APP_AVATAR} alt="Avatar" className="img-fluid rounded-circle" style={{ width: "300px", height: "300px" }} />
+                <img src={process.env.REACT_APP_AVATAR} alt="Avatar" className="avatar" />
             </div>
             <div>
                 <FadeText isActive={true} directionY={-30} setTime={1}>
@@ -66,20 +59,11 @@ export default function About() {
                 <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="btn" href="#skills" onClick={toggleSkillsVisibility}
-                    style={{ background: "#222", color: "white", fontFamily: "lato", height: "50px", width: "100px" }}>
-                    Skills
-                </motion.button>
-                <span className="p-3"></span>
-                <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
                     className="btn" onClick={toggleResume}
-                    style={{ background: "#222", color: "white", fontFamily: "lato", height: "50px", width: "100px" }}>
+                    style={{ background: "#222", color: "white", fontFamily: "lato", height: "50px", width: "120px" }}>
                     Resume
                 </motion.button>
             </div>
-            {isSkillsVisible && <Skills />}
         </section>
     );
 };
