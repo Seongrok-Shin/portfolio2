@@ -139,7 +139,6 @@ nav a:hover::after {
 .skills-container {
   overflow: hidden;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
@@ -168,7 +167,7 @@ nav a:hover::after {
     margin-bottom: 13px;
     font-family: "lato", sans-serif;
     font-weight: bold;
-    color: #effbf9;
+    color: #210454;
   }
   .experience-item {
     @media screen and (max-width: 768px), (max-height: 601px) {
@@ -176,7 +175,7 @@ nav a:hover::after {
     }
     padding: 0 0 0 15px;
     margin-top: -2px;
-    border-left: 2px solid #000000;
+    border-left: 2px solid #666;
     position: relative;
     h4 {
       @media screen and (max-width: 768px), (max-height: 601px) {
@@ -186,7 +185,7 @@ nav a:hover::after {
       font-size: 16px;
       font-weight: 600;
       font-family: "lato", sans-serif;
-      color: #ffffff;
+      color: #000000;
       margin-bottom: 10px;
     }
 
@@ -195,12 +194,12 @@ nav a:hover::after {
         font-size: 12px;
       }
       font-size: 14px;
-      background: #effbf9;
+      background: #222;
       padding: 5px 15px;
       display: inline-block;
       font-weight: 600;
       margin-bottom: 10px;
-      color: #222;
+      color: #ffffff;
     }
 
     p {
@@ -210,7 +209,7 @@ nav a:hover::after {
       margin: 0 0 10px 0;
       font-size: 14px;
       line-height: 24px;
-      color: #ffffff;
+      color: #000000;
       font-family: "lato", sans-serif;
     }
   }
@@ -227,7 +226,7 @@ nav a:hover::after {
     border-radius: 50px;
     left: -7px;
     top: 0;
-    background: #fff;
+    background: #666;
     border: 2px solid #000000;
   }
 }
@@ -241,5 +240,27 @@ nav a:hover::after {
   height: 300px;
   border-radius: 50%;
   border: 2px solid #222;
+}
+
+.cardText {
+  @media screen and (max-width: 768px), (max-height: 601px) {
+    font-size: 18px;
+  }
+  font-size: 24px;
+  font-weight: 600;
+  font-family: "lato", sans-serif;
+  color: #000000;
+  margin-bottom: 10px;
+}
+
+.iconText {
+  @media screen and (max-width: 768px), (max-height: 601px) {
+    font-size: 14px;
+  }
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "lato", sans-serif;
+  color: #000000;
+  margin-bottom: 10px;
 }
 @import "~bootstrap/scss/utilities/api";

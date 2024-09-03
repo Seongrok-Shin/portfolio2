@@ -25,7 +25,7 @@ const Experience = () => {
     <section
       id="experience"
       className="container-fluid d-flex flex-column justify-content-center align-items-center"
-      style={{ height: "100vh", backgroundColor: "#222" }}
+      style={{ height: "100vh" }}
     >
       <div className="experience">
         <h1 className="mt-2 mb-3 rounded">Education</h1>
@@ -66,7 +66,7 @@ const Experience = () => {
             <FadeText isActive={true} directionY={-30} setTime={3}>
               <h4 className="mb-3 experience-title">GovHack 2023</h4>
               <h5>Aug 2023 - Aug 2023</h5>
-              <p className="text-white">
+              <p>
                 As a front-end developer, I have created a web application.
               </p>
               <a className="text-muted" href="/#projects/#govhack2023">

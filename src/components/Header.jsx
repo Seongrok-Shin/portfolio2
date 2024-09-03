@@ -29,6 +29,9 @@ const Header = () => {
                                 <a href="#about">About</a>
                             </li>
                             <li className="nav-item">
+                                <a href="#skills">Skills</a>
+                            </li>
+                            <li className="nav-item">
                                 <a href="#experience">Experience</a>
                             </li>
                             <li className="nav-item">

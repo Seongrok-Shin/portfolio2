@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Icon from "../icon/Icon";
 import "./../scss/custom.scss";
 
-const Skills = () => {
+const FlowSkills = () => {
     const [iconNames, setIconNames] = useState([
         "html", "javascript", "react", "expo", "reactnative", "next",
         "bootstrap", "tailwindcss", "node", "java", "php", "mongo",
@@ -46,7 +46,7 @@ const Skills = () => {
                                 node: "green", java: "orange", php: "purple", mongo: "green", firebase: "orange",
                                 mysql: "blue", r: "skyblue", python: "blue", rstudio: "skyblue", git: "orange", github: "black"
                             }[name]}
-                            fontSize={isMobile() ? "1.5em" : "2em"}
+                            fontSize={isMobile() ? "1em" : "2em"}
                         />
                     </motion.div>
                 ))}
@@ -55,4 +55,4 @@ const Skills = () => {
     );
 };
 
-export default Skills;
+export default FlowSkills;
