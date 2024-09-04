@@ -1,60 +1,77 @@
-import React from "react";
+import React, { useCallback } from "react";
 import FadeText from "../components/FadeInText";
 import { motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 import '../scss/custom.scss';
 import 'dotenv/config';
 import TypeAnimation from "../components/Typing";
 import Icon from "../icon/Icon";
-
+import profile from "../assets/image0.gif";
+import Skills from "./Skills";
 export default function About() {
     const toggleResume = () => {
         window.open(process.env.REACT_APP_CV, "_blank");
     };
 
+    const [isSkillOpen, setIsSkillOpen] = React.useState(false);
+    const toggleSkill = () => {
+        setIsSkillOpen(!isSkillOpen);
+    };
+
+    const isMobile = useCallback(() => {
+        return window.innerWidth < 768;
+    }, []);
+
+    const getFontSize = useCallback(() => {
+        return isMobile() ? "1em" : "2em";
+    }, [isMobile]);
+
     return (
         <section className="container-fluid bg-white d-flex flex-column justify-content-center align-items-center" id="about" style={{ height: "100vh" }}>
-            <div>
-                <img src={process.env.REACT_APP_AVATAR} alt="Avatar" className="avatar" />
-            </div>
-            <div>
-                <FadeText isActive={true} directionY={-30} setTime={1}>
-                    <span className="p-5" />
-                    <h1 className="fw-bold" style={{ fontFamily: "'lato', sans-serif" }}>{process.env.REACT_APP_NAME}</h1>
-                </FadeText>
-            </div>
-            <div>
-                <TypeAnimation />
-            </div>
-            <div className="d-flex flex-row justify-content-center align-items-center">
-                <motion.p
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    exit={{ scale: 0 }}
-                    transition={{ delay: 1, type: "spring" }}>
-                    <a href={`mailto:${process.env.REACT_APP_EMAIL}`} target="_blank" rel="noreferrer">
-                        <Icon color="#222" fontSize="1.5em" name="mail" />
-                    </a>
-                </motion.p>
-                <motion.p
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    exit={{ scale: 0 }}
-                    transition={{ delay: 1.5, type: "spring" }}
-                >
-                    <a className="p-4" href={process.env.REACT_APP_GIT_HUB} target="_blank" rel="noreferrer">
-                        <Icon color="#222" fontSize="1.5em" name="github" />
-                    </a>
-                </motion.p>
-                <motion.p
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    exit={{ scale: 0 }}
-                    transition={{ delay: 2, type: "spring" }}>
-                    <a href={process.env.REACT_APP_LINKEDIN} target="_blank" rel="noreferrer">
-                        <Icon color="#222" fontSize="1.5em" name="linkedin" />
-                    </a>
-                </motion.p>
-            </div>
+            {isSkillOpen ? <></> : <div>
+                <div>
+                    <img src={profile} alt="Avatar" className="avatar" />
+                </div>
+                <div>
+                    <FadeText isActive={true} directionY={-30} setTime={1}>
+                        <span className="p-5" />
+                        <h1 className="fw-bold about-text" style={{ fontFamily: "'lato', sans-serif" }}>{process.env.REACT_APP_NAME}</h1>
+                    </FadeText>
+                </div>
+                <div>
+                    <TypeAnimation />
+                </div>
+                <div className="d-flex flex-row justify-content-center align-items-center">
+                    <motion.p
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        exit={{ scale: 0 }}
+                        transition={{ delay: 1, type: "spring" }}>
+                        <a href={`mailto:${process.env.REACT_APP_EMAIL}`} target="_blank" rel="noreferrer">
+                            <Icon color="#222" fontSize="1.5em" name="mail" />
+                        </a>
+                    </motion.p>
+                    <motion.p
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        exit={{ scale: 0 }}
+                        transition={{ delay: 1.5, type: "spring" }}
+                    >
+                        <a className="p-4" href={process.env.REACT_APP_GIT_HUB} target="_blank" rel="noreferrer">
+                            <Icon color="#222" fontSize="1.5em" name="github" />
+                        </a>
+                    </motion.p>
+                    <motion.p
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        exit={{ scale: 0 }}
+                        transition={{ delay: 2, type: "spring" }}>
+                        <a href={process.env.REACT_APP_LINKEDIN} target="_blank" rel="noreferrer">
+                            <Icon color="#222" fontSize="1.5em" name="linkedin" />
+                        </a>
+                    </motion.p>
+                </div>
+            </div>}
             <div className="d-flex justify-content-center align-items-center">
                 <motion.button
                     whileHover={{ scale: 1.1 }}
@@ -63,7 +80,18 @@ export default function About() {
                     style={{ background: "#222", color: "white", fontFamily: "lato", height: "50px", width: "120px" }}>
                     Resume
                 </motion.button>
+                <span className="p-3"></span>
+                <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    className="btn" onClick={toggleSkill}
+                    style={{ background: "#222", color: "white", fontFamily: "lato", height: "50px", width: "120px" }}>
+                    {isSkillOpen ? "Close Techs" : "Open Techs"}
+                </motion.button>
             </div>
+            <AnimatePresence>
+                {isSkillOpen && <Skills getFontSize={getFontSize} />}
+            </AnimatePresence>
         </section>
     );
 };

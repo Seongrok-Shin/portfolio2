@@ -3,15 +3,15 @@ import About from "./About";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Experience from "./Experience";
-import Skills from "./Skills";
+import Project from "./Project";
 export default function Home() {
 
     return (
         <main>
             <Header />
             <About />
-            <Skills />
             <Experience />
+            <Project />
             <Footer />
         </main>
     );

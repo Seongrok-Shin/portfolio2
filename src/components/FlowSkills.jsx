@@ -11,7 +11,7 @@ const FlowSkills = () => {
     ]);
 
     const isMobile = useCallback(() => {
-        return window.innerWidth < 768; // Adjust breakpoint as needed
+        return window.innerWidth < 768;
     }, []);
 
     useEffect(() => {
