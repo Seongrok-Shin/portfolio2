@@ -25,7 +25,7 @@ const Experience = () => {
     <section
       id="experience"
       className="container-fluid d-flex flex-column justify-content-center align-items-center"
-      style={{ height: "100vh" }}
+      style={{ height: "100vh", backgroundColor: "#222" }}
     >
       <div className="experience">
         <h1 className="mt-2 mb-3 rounded">Education</h1>
@@ -55,9 +55,6 @@ const Experience = () => {
                 As a back-end developer, I have created pipe lines for a web
                 application.
               </p>
-              <a className="text-muted" href="/#projects/#govhack2022">
-                Find out more, you can check "Projects" seciton.
-              </a>
             </FadeText>
           </div>
         )}
@@ -69,9 +66,6 @@ const Experience = () => {
               <p>
                 As a front-end developer, I have created a web application.
               </p>
-              <a className="text-muted" href="/#projects/#govhack2023">
-                Find out more, you can check "Projects" seciton.
-              </a>
             </FadeText>
           </div>
         )}
@@ -80,7 +74,7 @@ const Experience = () => {
           <div className="mb-3 experience-item">
             <FadeText isActive={true} directionY={-30} setTime={3}>
               <h4 className="mb-3 experience-title">Not gain yet</h4>
-              <h5>Dec 2023 - Present</h5>
+              <h5>June 2024 - Present</h5>
               <p>I have been looking for a job.</p>
             </FadeText>
           </div>
