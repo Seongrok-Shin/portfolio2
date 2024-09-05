@@ -24,7 +24,9 @@ import { FaC, FaDocker, FaNodeJs, FaPhp } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { CgMenuMotion } from "react-icons/cg";
 import { DiMongodb } from "react-icons/di";
-
+import { FcNext, FcPrevious } from "react-icons/fc";
+import { FaYoutube } from "react-icons/fa6";
+import { BsBrowserChrome } from "react-icons/bs";
 const iconMap = {
   github: <FaGithub />,
   linkedin: <FaLinkedin />,
@@ -50,6 +52,10 @@ const iconMap = {
   mongo: <DiMongodb />,
   node: <FaNodeJs />,
   docker: <FaDocker />,
+  previousArrow: <FcPrevious />,
+  nextArrow: <FcNext />,
+  web: <BsBrowserChrome />,
+  youtube: <FaYoutube />
 };
 
 export default function Icon({ hoverColor, color, fontSize, name }) {

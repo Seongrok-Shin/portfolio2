@@ -24,7 +24,7 @@ const Footer = () => (
                     </a>
                 </li>
             </ul>
-            <p className="text-end" style={{ fontFamily: "'lato', sans-serif", color: "#222" }}>Copyright © 2024. All rights reserved.</p>
+            <p className="text-end" style={{ fontFamily: "'lato', sans-serif", color: "#222" }}>Copyright © 2024 – Seongrok Shin</p>
         </div>
     </footer>
 );
