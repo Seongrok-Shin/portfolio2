@@ -3,6 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 @import "~bootstrap/scss/mixins/banner";
 @include bsBanner("");
 
@@ -82,7 +83,7 @@ body {
 
 .type-text {
   @media screen and (max-width: 768px) {
-    font-size: 14px;
+    font-size: 11px;
   }
   color: #000000;
   font-family: "Lato", sans-serif;
@@ -285,4 +286,50 @@ nav a:hover::after {
       color: #000000;
   }
   }
+}
+
+.photo {
+  @media screen and (max-width: 768px), (max-height: 601) {
+    width: 200px;
+    height: 200px;
+  }
+
+  width: 500px;
+  height: 500px;
+  border: 2px solid #000000;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.carousel-text-head {
+  @media screen and (max-width: 767px), (max-height: 601) {
+    font-size: 16px;
+  }
+  font-size: 24px;
+  font-weight: 1000;
+  font-family: "lato", sans-serif;
+  color: #222;
+  text-align: center;
+}
+.carousel-text-subhead {
+  @media screen and (max-width: 767px), (max-height: 601) {
+    font-size: 14px;
+  }
+
+  font-size: 20px;
+  font-weight: 600;
+  font-family: "lato", sans-serif;
+  color: #666;
+  text-align: center;
+}
+.carousel-text-body {
+  @media screen and (max-width: 767px), (max-height: 601) {
+    font-size: 10px;
+  }
+
+  font-size: 16px;
+  font-weight: 400;
+  font-family: "ubuntu", sans-serif;
+  color: #222;
+  text-align: center;
 }

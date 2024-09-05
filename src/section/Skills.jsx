@@ -15,12 +15,12 @@ const Skills = ({ getFontSize }) => {
   return (
     <section
       id="skills"
-      className="container-fluid w-100 d-flex flex-column justify-content-center align-items-center"
+      className="d-flex flex-column justify-content-center align-items-center w-75"
     >
 
       <div className="row d-flex flex-wrap justify-content-center align-items-center">
         <div className={isMobile() ? "col-12 col-md-4 col-lg-3 p-3" : "mt-3"}>
-          <div className="card" style={{ borderColor: "#222", width: "100%" }}>
+          <div className="card" style={{ borderColor: "#222" }}>
             <div
               className="card-body rounded"
             >
@@ -55,7 +55,7 @@ const Skills = ({ getFontSize }) => {
             <div
               className="card-body rounded"
             >
-              <h6 className="fw-bold" style={{ fontFamily: "'lato', sans-serif" }}>Desktop/Mobile
+              <h6 className="fw-bold" style={{ fontFamily: "'lato', sans-serif" }}>Desktop / Mobile
                 <div className="progress mt-2" style={{ height: "0.5rem" }}>
                   <div className="progress-bar progress-bar-striped bg-secondary" role="progressbar" style={{ width: "60%", height: "100%" }} aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
@@ -101,7 +101,9 @@ const Skills = ({ getFontSize }) => {
           </div>
         </div>
       </div>
-      <div className="d-block mt-3">
+      <div className="d-block mt-3"
+        style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "75%" }}
+      >
         <FlowSkills />
       </div>
     </section>
