@@ -38,9 +38,9 @@ export default function About() {
                         <h1 className="fw-bold about-text" style={{ fontFamily: "'lato', sans-serif" }}>{process.env.REACT_APP_NAME}</h1>
                     </FadeText>
                 </div>
-                <div>
-                    <TypeAnimation />
-                </div>
+
+                <TypeAnimation />
+
                 <div className="d-flex flex-row justify-content-center align-items-center">
                     <motion.p
                         initial={{ scale: 0 }}
