@@ -26,6 +26,7 @@ export default function TypeAnimation() {
                     cursor={true}
                     repeat={Infinity}
                     style={{ fontFamily: "'Open Sans', sans-serif", color: "#666" }}
+                    className="type-text"
                 />
             </strong>
         </div>

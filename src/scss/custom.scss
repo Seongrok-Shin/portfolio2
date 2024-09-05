@@ -1,8 +1,8 @@
 // Custom.scss
 @import "../../node_modules/bootstrap/scss/bootstrap";
-@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import "~bootstrap/scss/mixins/banner";
 @include bsBanner("");
 
@@ -59,22 +59,39 @@ $utilities: map-merge(
       map-merge(
         map-get($utilities, "font-size"),
         (
-          responsive: true
+          responsive: true,
         )
-      )
+      ),
   )
 );
 
 body {
   margin: 0;
-	background: #222;
-	font-family: 'Roboto', sans-serif;
-	font-weight: 800;
+  background: #222;
+  font-family: "Roboto", sans-serif;
+  font-weight: 800;
+}
+.about-text {
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
+  color: #000000;
+  font-family: "Lato", sans-serif;
+  font-weight: 800;
+}
+
+.type-text {
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+  }
+  color: #000000;
+  font-family: "Lato", sans-serif;
+  font-weight: 800;
 }
 
 .container {
   width: 80%;
-	margin: 0 auto;
+  margin: 0 auto;
 }
 
 header {
@@ -82,7 +99,7 @@ header {
 }
 
 header::after {
-  content: '';
+  content: "";
   display: table;
   clear: both;
 }
@@ -120,15 +137,15 @@ nav a:hover {
 }
 
 nav a::after {
-  content: '';
+  content: "";
   display: block;
   height: 5px;
   background-color: #666;
-  
+
   position: absolute;
   top: -50;
   width: 0%;
-  
+
   transition: all ease-in-out 250ms;
 }
 
@@ -137,80 +154,135 @@ nav a:hover::after {
 }
 
 .skills-container {
-    overflow: hidden;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .icon-container {
-    margin: 3px;
+  margin: 3px;
 }
 
 .experience {
-    h1 {
-    line-height: 26px;
-    font-size: 26px;
+  h1 {
+    @media screen and (max-width: 768px), (max-height: 601px) {
+      font-size: 16px;
+      padding: 0.2rem;
+    }
+    font-size: 24px;
     font-weight: bolder;
     font-family: "lato", sans-serif;
-    color: #ffffff;
-    margin-bottom: 5rem;
-    background-color: #000000;
+    color: #000000;
+    margin-bottom: 2.5rem;
+    background-color: #ffffff;
     padding: 0.5rem;
   }
-    .experience-title {
-    font-size: 26px;
+  .experience-title {
     font-weight: 400;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-family: 'lato', sans-serif;
+    margin-top: 13px;
+    margin-bottom: 13px;
+    font-family: "lato", sans-serif;
     font-weight: bold;
-    color: #effbf9;
+    color: #210454;
   }
-    .experience-item {
-    padding: 0 0 20px 20px;
+  .experience-item {
+    @media screen and (max-width: 768px), (max-height: 601px) {
+      padding: 0 0 0 10px;
+    }
+    padding: 0 0 0 15px;
     margin-top: -2px;
-    border-left: 2px solid #000000;
+    border-left: 2px solid #ffffff;
     position: relative;
-        h4 {
-      line-height: 18px;
-      font-size: 18px;
+    h4 {
+      @media screen and (max-width: 768px), (max-height: 601px) {
+        font-size: 12px;
+      }
+      line-height: 16px;
+      font-size: 16px;
       font-weight: 600;
       font-family: "lato", sans-serif;
       color: #ffffff;
       margin-bottom: 10px;
     }
 
-        h5 {
-      font-size: 16px;
-      background: #effbf9;
+    h5 {
+      @media screen and (max-width: 768px), (max-height: 601px) {
+        font-size: 12px;
+      }
+      font-size: 14px;
+      background: #ffffff;
       padding: 5px 15px;
       display: inline-block;
       font-weight: 600;
       margin-bottom: 10px;
-      color: #222;
+      color: #000000;
     }
 
-        p {
+    p {
+      @media screen and (max-width: 768px), (max-height: 601px) {
+        font-size: 12px;
+      }
       margin: 0 0 10px 0;
-      font-size: 16px;
+      font-size: 14px;
       line-height: 24px;
       color: #ffffff;
-      font-family: 'lato', sans-serif;
+      font-family: "lato", sans-serif;
     }
   }
-    .experience-item::before {
+  .experience-item::before {
+    @media screen and (max-width: 768px), (max-height: 601px) {
+      width: 7px;
+      height: 7px;
+      left: -4px;
+    }
     content: "";
     position: absolute;
-    width: 16px;
-    height: 16px;
+    width: 12px;
+    height: 12px;
     border-radius: 50px;
-    left: -9px;
+    left: -7px;
     top: 0;
-    background: #fff;
-    border: 2px solid #000000;
+    background: #000000;
+    border: 2px solid #ffffff;
   }
 }
 
+.avatar {
+  @media screen and (max-width: 768px), (max-height: 601px) {
+    width: 100px;
+    height: 100px;
+  }
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 2px solid #000000;
+}
+
+.iconText {
+  @media screen and (max-width: 768px), (max-height: 601px) {
+    font-size: 10px;
+  }
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "lato", sans-serif;
+  color: #000000;
+}
 @import "~bootstrap/scss/utilities/api";
+
+.card {
+  .card-body {
+    @media screen and (max-width: 768px), (max-height: 601) {
+        padding: 20px;
+    }
+    h6 {
+      @media screen and (max-width: 768px), (max-height: 601) {
+        font-size: 10px;
+      }
+      font-size: 16px;
+      font-weight: 600;
+      font-family: "lato", sans-serif;
+      color: #000000;
+  }
+  }
+}
