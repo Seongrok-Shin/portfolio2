@@ -18,7 +18,6 @@ const Project = () => {
         <section
             id="project"
             className="container-fluid project-section d-flex flex-column justify-content-center align-items-center"
-            style={{ height: "100vh"}}
         >
             <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel" >
                 <div className="carousel-inner" >
