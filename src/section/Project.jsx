@@ -8,7 +8,7 @@ import Pepe from "../assets/pepe.jpg";
 import Icon from "../icon/Icon";
 const Project = () => {
     const isMobile = useCallback(() => {
-        return window.innerWidth < 768;
+        return window.innerWidth < 1024;
     }, []);
 
     const getFontSize = useCallback(() => {
@@ -17,10 +17,10 @@ const Project = () => {
     return (
         <section
             id="project"
-            className="container-fluid d-flex flex-column justify-content-center align-items-center"
-            style={{ height: "100vh", width: "100%" }}
+            className="container-fluid project-section d-flex flex-column justify-content-center align-items-center"
+            // style={isMobile() ? { height: "100vh", backgroundColor: "#222" } : { height: "100%", backgroundColor: "#222" }}
         >
-            <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel" style={isMobile() ? {} : { width: "70%" }}>
+            <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel" style={{ width: "80%" }} >
                 <div className="carousel-inner" >
                     <div className="carousel-item active" data-bs-interval="1000000">
                         <div>
@@ -47,7 +47,7 @@ const Project = () => {
                                     </p>
                                     <p>
                                         <a href="https://github.com/Seongrok-Shin/catchMoles_GUIV/" target="_blank" rel="noreferrer">
-                                            <Icon color="#222" fontSize={getFontSize()} name="github" />
+                                            <Icon color="#ffffff" fontSize={getFontSize()} name="github" />
                                         </a>
                                     </p>
                                 </div>
@@ -82,7 +82,7 @@ const Project = () => {
                                     </p>
                                     <p>
                                         <a href="https://2022.hackerspace.govhack.org/projects/pipewatch" target="_blank" rel="noreferrer">
-                                            <Icon color="#222" fontSize={getFontSize()} name="web" />
+                                            <Icon color="#ffffff" fontSize={getFontSize()} name="web" />
                                         </a>
                                         <span className="p-3"></span>
                                         <a href="https://www.youtube.com/watch?v=jlI5YnXXx74" target="_blank" rel="noreferrer">
@@ -118,7 +118,7 @@ const Project = () => {
                                     </p>
                                     <p>
                                         <a href="https://github.com/Seongrok-Shin/Catch-Up" target="_blank" rel="noreferrer">
-                                            <Icon color="#222" fontSize={getFontSize()} name="github" />
+                                            <Icon color="#ffffff" fontSize={getFontSize()} name="github" />
                                         </a>
                                     </p>
                                 </div>
@@ -153,7 +153,7 @@ const Project = () => {
                                         Deployed using Vercel for out-of-the-box CI/CD pipelines.
                                     </p>
                                     <a href="https://2023.hackerspace.govhack.org/projects/green_kiwi" target="_blank" rel="noreferrer">
-                                        <Icon color="#222" fontSize={getFontSize()} name="web" />
+                                        <Icon color="#ffffff" fontSize={getFontSize()} name="web" />
                                     </a>
                                     <span className="p-3"></span>
                                     <a href="https://www.youtube.com/watch?v=FbNKT36Ebek" target="_blank" rel="noreferrer">
@@ -220,7 +220,7 @@ const Project = () => {
                                     </p>
                                     <p>
                                         <a href="https://github.com/dawinkweon/terrible-pepe" target="_blank" rel="noreferrer">
-                                            <Icon color="#222" fontSize={getFontSize()} name="github" />
+                                            <Icon color="#ffffff" fontSize={getFontSize()} name="github"/>
                                         </a>
                                         <span className="p-3"></span>
                                         <a href="https://youtu.be/QtwVVHi6JlA" target="_blank" rel="noreferrer">
@@ -236,7 +236,6 @@ const Project = () => {
                     <Icon name="previousArrow" fontSize={getFontSize()} />
                     <span className="visually-hidden">Previous</span>
                 </button>
-                <span style={{ padding: "10px" }}></span>
                 <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
                     <Icon name="nextArrow" fontSize={getFontSize()} />
                     <span className="visually-hidden">Next</span>

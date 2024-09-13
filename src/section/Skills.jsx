@@ -2,31 +2,41 @@ import React, { useCallback } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import "./../scss/custom.scss";
-import FlowSkills from "../components/FlowSkills";
 import Icon from "../icon/Icon";
 
-
-const Skills = ({ getFontSize }) => {
-
+const Skills = () => {
   const isMobile = useCallback(() => {
     return window.innerWidth < 768;
   }, []);
 
+  const getFontSize = useCallback(() => {
+    return isMobile() ? "1em" : "2em";
+  }, [isMobile]);
+
   return (
     <section
       id="skills"
-      className="d-flex flex-column justify-content-center align-items-center w-75"
+      className="d-flex flex-column justify-content-center align-items-center"
+      style={ isMobile() ? {height: "100vh", backgroundColor: "#222"}:{ height: "100vh", backgroundColor: "#222", width: "100vw" }}
     >
-
       <div className="row d-flex flex-wrap justify-content-center align-items-center">
         <div className={isMobile() ? "col-12 col-md-4 col-lg-3 p-3" : "mt-3"}>
           <div className="card" style={{ borderColor: "#222" }}>
-            <div
-              className="card-body rounded"
-            >
-              <h6 className="fw-bold" style={{ fontFamily: "'lato', sans-serif" }}>Web Development
+            <div className="card-body rounded">
+              <h6
+                className="fw-bold"
+                style={{ fontFamily: "'lato', sans-serif" }}
+              >
+                Web Development
                 <div className="progress mt-2" style={{ height: "0.5rem" }}>
-                  <div className="progress-bar progress-bar-striped bg-secondary" role="progressbar" style={{ width: "80%", height: "100%" }} aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div
+                    className="progress-bar progress-bar-striped bg-secondary"
+                    role="progressbar"
+                    style={{ width: "80%", height: "100%" }}
+                    aria-valuenow="80"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
                 </div>
               </h6>
               <div className="d-flex flex-row justify-content-center align-items-center">
@@ -39,11 +49,19 @@ const Skills = ({ getFontSize }) => {
                 </p>
                 <p className="p-2 iconText">Next</p>
                 <p>
-                  <Icon name="bootstrap" color="purple" fontSize={getFontSize()} />
+                  <Icon
+                    name="bootstrap"
+                    color="purple"
+                    fontSize={getFontSize()}
+                  />
                 </p>
                 <p className="p-2 iconText">Bootstrap</p>
                 <p>
-                  <Icon name="tailwindcss" color="skyblue" fontSize={getFontSize()} />
+                  <Icon
+                    name="tailwindcss"
+                    color="skyblue"
+                    fontSize={getFontSize()}
+                  />
                 </p>
                 <p className="p-2 iconText">Tailwind CSS</p>
               </div>
@@ -52,12 +70,21 @@ const Skills = ({ getFontSize }) => {
         </div>
         <div className={isMobile() ? "col-12 col-md-4 col-lg-3 p-3" : "mt-3"}>
           <div className="card" style={{ borderColor: "#222", width: "100%" }}>
-            <div
-              className="card-body rounded"
-            >
-              <h6 className="fw-bold" style={{ fontFamily: "'lato', sans-serif" }}>Desktop / Mobile
+            <div className="card-body rounded">
+              <h6
+                className="fw-bold"
+                style={{ fontFamily: "'lato', sans-serif" }}
+              >
+                Desktop / Mobile
                 <div className="progress mt-2" style={{ height: "0.5rem" }}>
-                  <div className="progress-bar progress-bar-striped bg-secondary" role="progressbar" style={{ width: "60%", height: "100%" }} aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div
+                    className="progress-bar progress-bar-striped bg-secondary"
+                    role="progressbar"
+                    style={{ width: "60%", height: "100%" }}
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
                 </div>
               </h6>
               <div className="d-flex flex-row justify-content-center align-items-center">
@@ -70,7 +97,11 @@ const Skills = ({ getFontSize }) => {
                 </p>
                 <p className="p-2 iconText">Python</p>
                 <p>
-                  <Icon name="reactnative" color="skyblue" fontSize={getFontSize()} />
+                  <Icon
+                    name="reactnative"
+                    color="skyblue"
+                    fontSize={getFontSize()}
+                  />
                 </p>
                 <p className="p-2 iconText">ReactNative</p>
               </div>
@@ -79,12 +110,21 @@ const Skills = ({ getFontSize }) => {
         </div>
         <div className={isMobile() ? "col-12 col-md-4 col-lg-3 p-3" : "mt-3"}>
           <div className="card" style={{ borderColor: "#222", width: "100%" }}>
-            <div
-              className="card-body rounded"
-            >
-              <h6 className="fw-bold" style={{ fontFamily: "'lato', sans-serif" }}>Data Science
+            <div className="card-body rounded">
+              <h6
+                className="fw-bold"
+                style={{ fontFamily: "'lato', sans-serif" }}
+              >
+                Data Science
                 <div className="progress mt-2" style={{ height: "0.5rem" }}>
-                  <div className="progress-bar progress-bar-striped bg-secondary" role="progressbar" style={{ width: "50%", height: "100%" }} aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div
+                    className="progress-bar progress-bar-striped bg-secondary"
+                    role="progressbar"
+                    style={{ width: "50%", height: "100%" }}
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
                 </div>
               </h6>
               <div className="d-flex flex-row justify-content-center align-items-center">
@@ -101,14 +141,17 @@ const Skills = ({ getFontSize }) => {
           </div>
         </div>
       </div>
-      <div className="d-block mt-3"
-        style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "75%" }}
-      >
-        <FlowSkills />
-      </div>
+      <div
+        className="d-block mt-3"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "75%",
+        }}
+      ></div>
     </section>
   );
 };
 
 export default Skills;
-

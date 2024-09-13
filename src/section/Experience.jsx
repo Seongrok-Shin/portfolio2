@@ -25,7 +25,7 @@ const Experience = () => {
     <section
       id="experience"
       className="container-fluid d-flex flex-column justify-content-center align-items-center"
-      style={{ height: "100vh", backgroundColor: "#222" }}
+      style={{ height: "100vh" }}
     >
       <div className="experience">
         <h1 className="mt-2 mb-3 rounded">Education</h1>

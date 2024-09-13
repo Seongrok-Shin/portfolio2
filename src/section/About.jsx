@@ -1,34 +1,19 @@
-import React, { useCallback } from "react";
+import React from "react";
 import FadeText from "../components/FadeInText";
 import { motion } from "framer-motion";
-import { AnimatePresence } from "framer-motion";
 import '../scss/custom.scss';
 import 'dotenv/config';
 import TypeAnimation from "../components/Typing";
 import Icon from "../icon/Icon";
 import profile from "../assets/image0.gif";
-import Skills from "./Skills";
 export default function About() {
     const toggleResume = () => {
         window.open(process.env.REACT_APP_CV, "_blank");
     };
 
-    const [isSkillOpen, setIsSkillOpen] = React.useState(false);
-    const toggleSkill = () => {
-        setIsSkillOpen(!isSkillOpen);
-    };
-
-    const isMobile = useCallback(() => {
-        return window.innerWidth < 768;
-    }, []);
-
-    const getFontSize = useCallback(() => {
-        return isMobile() ? "1em" : "2em";
-    }, [isMobile]);
-
     return (
-        <section className="container-fluid bg-white d-flex flex-column justify-content-center align-items-center" id="about" style={{ height: "100vh" }}>
-            {isSkillOpen ? <></> : <div>
+        <section className="bg-white d-flex flex-column justify-content-center align-items-center" id="about" style={{ height: "100vh" }}>
+            <div>
                 <div>
                     <img src={profile} alt="Avatar" className="avatar" />
                 </div>
@@ -71,7 +56,7 @@ export default function About() {
                         </a>
                     </motion.p>
                 </div>
-            </div>}
+            </div>
             <div className="d-flex justify-content-center align-items-center">
                 <motion.button
                     whileHover={{ scale: 1.1 }}
@@ -80,18 +65,7 @@ export default function About() {
                     style={{ background: "#222", color: "white", fontFamily: "lato", height: "50px", width: "120px" }}>
                     Resume
                 </motion.button>
-                <span className="p-3"></span>
-                <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="btn" onClick={toggleSkill}
-                    style={{ background: "#222", color: "white", fontFamily: "lato", height: "50px", width: "120px" }}>
-                    {isSkillOpen ? "Close Techs" : "Open Techs"}
-                </motion.button>
             </div>
-            <AnimatePresence>
-                {isSkillOpen && <Skills getFontSize={getFontSize} />}
-            </AnimatePresence>
         </section>
     );
 };

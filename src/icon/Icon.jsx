@@ -48,23 +48,25 @@ const iconMap = {
   bootstrap: <FaBootstrap />,
   tailwindcss: <SiTailwindcss />,
   html: <FaHtml5 />,
-  nav: <CgMenuMotion className="img-fluid position-absolute top-0 start-0 fixed-top my-2 mx-3" />,
+  nav: (
+    <CgMenuMotion className="img-fluid position-absolute top-0 start-0 fixed-top my-2 mx-3" />
+  ),
   mongo: <DiMongodb />,
   node: <FaNodeJs />,
   docker: <FaDocker />,
   previousArrow: <FcPrevious />,
   nextArrow: <FcNext />,
   web: <BsBrowserChrome />,
-  youtube: <FaYoutube />
+  youtube: <FaYoutube />,
 };
 
-export default function Icon({ hoverColor, color, fontSize, name }) {
+export default function Icon({ hoverColor, color, fontSize, name, border }) {
   return iconMap[name] ? (
     <motion.span
       whileHover={{ color: hoverColor }}
-      onHoverStart={(e) => { }}
-      onHoverEnd={(e) => { }}
-      style={{ color, fontSize }}
+      onHoverStart={(e) => {}}
+      onHoverEnd={(e) => {}}
+      style={{ color, fontSize, border }}
     >
       {iconMap[name]}
     </motion.span>
