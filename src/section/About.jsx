@@ -12,7 +12,7 @@ export default function About() {
     };
 
     return (
-        <section className="bg-white d-flex flex-column justify-content-center align-items-center" id="about" style={{ height: "100vh" }}>
+        <section className="container-fluid bg-white d-flex flex-column justify-content-center align-items" id="about" style={{ height: "100vh"}}>
             <div>
                 <div>
                     <img src={profile} alt="Avatar" className="avatar" />
@@ -56,8 +56,6 @@ export default function About() {
                         </a>
                     </motion.p>
                 </div>
-            </div>
-            <div className="d-flex justify-content-center align-items-center">
                 <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
@@ -66,6 +64,7 @@ export default function About() {
                     Resume
                 </motion.button>
             </div>
+
         </section>
     );
 };

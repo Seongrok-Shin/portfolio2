@@ -18,9 +18,9 @@ const Project = () => {
         <section
             id="project"
             className="container-fluid project-section d-flex flex-column justify-content-center align-items-center"
-            // style={isMobile() ? { height: "100vh", backgroundColor: "#222" } : { height: "100%", backgroundColor: "#222" }}
+            style={{ height: "100vh"}}
         >
-            <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel" style={{ width: "80%" }} >
+            <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel" >
                 <div className="carousel-inner" >
                     <div className="carousel-item active" data-bs-interval="1000000">
                         <div>

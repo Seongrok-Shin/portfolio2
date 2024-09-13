@@ -16,8 +16,8 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="d-flex flex-column justify-content-center align-items-center"
-      style={ isMobile() ? {height: "100vh", backgroundColor: "#222"}:{ height: "100vh", backgroundColor: "#222", width: "100vw" }}
+      className="container-fluid d-flex flex-column justify-content-center align-items-center"
+      style={{ height: "100vh", backgroundColor: "#222"}}
     >
       <div className="row d-flex flex-wrap justify-content-center align-items-center">
         <div className={isMobile() ? "col-12 col-md-4 col-lg-3 p-3" : "mt-3"}>
