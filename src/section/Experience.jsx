@@ -25,7 +25,7 @@ const Experience = () => {
     <section
       id="experience"
       className="container-fluid d-flex flex-column justify-content-center align-items-center"
-      style={{ height: "100vh"}}
+      style={{ height: "100vh" }}
     >
       <div className="experience">
         <h1 className="mt-2 mb-3 rounded">Education</h1>
@@ -63,9 +63,7 @@ const Experience = () => {
             <FadeText isActive={true} directionY={-30} setTime={3}>
               <h4 className="mb-3 experience-title">GovHack 2023</h4>
               <h5>Aug 2023 - Aug 2023</h5>
-              <p>
-                As a front-end developer, I have created a web application.
-              </p>
+              <p>As a front-end developer, I have created a web application.</p>
             </FadeText>
           </div>
         )}
@@ -73,9 +71,13 @@ const Experience = () => {
         {isScrolled && (
           <div className="mb-3 experience-item">
             <FadeText isActive={true} directionY={-30} setTime={3}>
-              <h4 className="mb-3 experience-title">Not gain yet</h4>
-              <h5>June 2024 - Present</h5>
-              <p>I have been looking for a job.</p>
+              <h4 className="mb-3 experience-title">Be Herd Limited</h4>
+              <h5>July 2024 - Present</h5>
+              <p>Founded startup company with a team.</p>
+              <p>
+                As a front-end engineer, I have created a progressive web
+                application.
+              </p>
             </FadeText>
           </div>
         )}
