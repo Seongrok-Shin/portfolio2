@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 @import "~bootstrap/scss/mixins/banner";
 @include bsBanner("");
 
@@ -122,7 +122,7 @@ nav ul {
 
 nav li {
   @media screen and (max-width: 768px), (max-height: 601px) {
-    margin-left : 0px;
+    margin-left: 0px;
   }
   display: inline-block;
   margin-left: 70px;
@@ -280,7 +280,7 @@ nav a:hover::after {
 .card {
   .card-body {
     @media screen and (max-width: 768px), (max-height: 601) {
-        padding: 20px;
+      padding: 20px;
     }
     h6 {
       @media screen and (max-width: 768px), (max-height: 601) {
@@ -290,21 +290,22 @@ nav a:hover::after {
       font-weight: 600;
       font-family: "lato", sans-serif;
       color: #000000;
-  }
+    }
   }
 }
 
 .photo {
-  @media screen and (max-width: 1024px), (max-height: 601) {
-    width: 200px;
-    height: 200px;
-  }
+  width: 100%;
+  height: auto;
+  max-height: 40vh;
+  object-fit: contain;
+  margin-top: 20px;
+}
 
-  width: 500px;
-  height: 400px;
-  border: 2px solid #ffffff;
-  margin-bottom: 10px;
-  margin-top: 10px;
+@media screen and (max-width: 767px), (max-height: 601) {
+  .photo {
+    margin-top: 100px;
+  }
 }
 
 .carousel-text-head {
@@ -347,4 +348,38 @@ nav a:hover::after {
   }
   height: 100%;
   background-color: #222;
+}
+
+.carousel {
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5%;
+    padding: 0;
+    color: #fff;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    &:hover {
+      color: #fff;
+      opacity: 1;
+    }
+    @media screen and (max-width: 767px) {
+      width: 0%;
+      font-size: 1.5rem;
+      visibility: hidden;
+    }
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+
+    @media screen and (max-width: 767px) {
+      width: 30px;
+      height: 30px;
+    }
+  }
 }
