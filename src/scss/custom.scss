@@ -367,6 +367,9 @@ nav a:hover::after {
       width: 0%;
       font-size: 1.5rem;
       visibility: hidden;
+      touch-action: pan-x;
+      -webkit-overflow-scrolling: touch;
+      overflow-x: auto;
     }
   }
 
