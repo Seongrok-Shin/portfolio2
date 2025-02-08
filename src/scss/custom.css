@@ -22009,4 +22009,58 @@ nav a:hover::after {
     width: 30px;
     height: 30px;
   }
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+.skill-card .card-body {
+  padding: 1rem;
+}
+.skill-card .card-body h6, .skill-card .card-body .h6 {
+  color: #fff;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+@media (max-width: 768px) {
+  .skill-card .card-body h6, .skill-card .card-body .h6 {
+    font-size: 1rem;
+  }
+}
+.skill-card:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+.skill-item .iconText {
+  margin: 0;
+  color: #fff;
+  font-size: 0.9rem;
+}
+@media (max-width: 768px) {
+  .skill-item .iconText {
+    font-size: 0.8rem;
+  }
+}
+
+.progress {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.progress .progress-bar {
+  border-radius: 10px;
 }/*# sourceMappingURL=custom.css.map */
