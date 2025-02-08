@@ -78,6 +78,33 @@ const Experience = () => {
                 As a front-end engineer, I have created a progressive web
                 application.
               </p>
+              <p>
+                Link: <a href="https://www.beherd.org/">Be Herd</a>
+              </p>
+            </FadeText>
+          </div>
+        )}
+        {isScrolled && (
+          <div className="mb-3 experience-item">
+            <FadeText isActive={true} directionY={-30} setTime={3}>
+              <h4 className="mb-3 experience-title">
+                Netflix App Review Analysis
+              </h4>
+              <h5>Dec, 2024 - Feb, 2025</h5>
+              <p>
+                Built a full-stack web analytics platform for Netflix app review
+                analysis using React, Python and AWS services.
+              </p>
+              <p>
+                Created dashboards with Material-UI to visualize user sentiment
+                trends and metrics.
+              </p>
+              <p>
+                Link:{" "}
+                <a href="http://clearvoice-demo.s3-website.ap-southeast-4.amazonaws.com/">
+                  Netflix App Review Analysis
+                </a>
+              </p>
             </FadeText>
           </div>
         )}
