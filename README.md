@@ -9,7 +9,6 @@ A modern, responsive portfolio website built with React and Bootstrap, featuring
 - Interactive project carousel
 - Skills showcase with progress bars
 - Dynamic typing animations
-- Dark/Light theme support
 - Mobile-friendly navigation
 
 ## 🛠 Tech Stack
