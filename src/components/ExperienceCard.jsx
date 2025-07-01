@@ -1,15 +1,27 @@
 ﻿import React from "react";
 import {motion} from "framer-motion";
 import SkillBadge from "./SkillBadge";
+import {useResponsive} from "../hooks/useResponsive";
 
 const ExperienceCard = ({experience, variants}) => {
+    const {isMobile, isTablet} = useResponsive();
+
+    // Responsive values for different screen sizes
+    const iconSize = isMobile ? "50px" : "80px";
+    const iconFontSize = isMobile ? "1rem" : "2rem";
+    const titleFontSize = isMobile ? "1rem" : "1.5rem";
+    const descriptionFontSize = isMobile ? "0.65rem" : "1rem";
+    const badgeFontSize = isMobile ? "0.6rem" : "0.9rem";
+    const categoryBadgeFontSize = isMobile ? "0.5rem" : "0.75rem";
+    const keyAreasFontSize = isMobile ? "0.7rem" : "1rem";
+    const cardHeight = isMobile ? "h-60" : "h-100";
     return (
         <motion.div
             variants={variants}
             className="col-lg-5 col-md-6"
         >
             <motion.div
-                className="experience-card h-100 p-4 rounded-4 position-relative overflow-hidden"
+                className="experience-card cardHeight p-4 rounded-4 position-relative overflow-hidden"
                 style={{
                     background: "rgba(255, 255, 255, 0.05)",
                     backdropFilter: "blur(20px)",
@@ -40,7 +52,7 @@ const ExperienceCard = ({experience, variants}) => {
                         className="badge px-3 py-2 text-white fw-bold"
                         style={{
                             backgroundColor: experience.color,
-                            fontSize: "0.75rem",
+                            fontSize: categoryBadgeFontSize,
                             borderRadius: "20px"
                         }}
                     >
@@ -53,40 +65,40 @@ const ExperienceCard = ({experience, variants}) => {
                     <motion.div
                         className="d-inline-flex align-items-center justify-content-center rounded-circle mb-3"
                         style={{
-                            width: "80px",
-                            height: "80px",
+                            width: iconSize,
+                            height: iconSize,
                             backgroundColor: `${experience.color}30`,
                             border: `3px solid ${experience.color}`
                         }}
                         whileHover={{rotate: 360}}
                         transition={{duration: 0.6}}
                     >
-                        <span style={{fontSize: "2rem"}}>{experience.icon}</span>
+                        <span style={{fontSize: iconFontSize}}>{experience.icon}</span>
                     </motion.div>
                 </div>
 
                 {/* Content */}
                 <div className="text-center">
-                    <h3 className="fw-bold mb-3 text-white" style={{fontSize: "1.5rem"}}>
+                    <h3 className="fw-bold mb-3 text-white" style={{fontSize: titleFontSize}}>
                         {experience.title}
                     </h3>
 
                     <div className="mb-3">
                         <span
                             className="badge bg-dark text-light px-3 py-2"
-                            style={{fontSize: "0.9rem", borderRadius: "15px", border: "1px solid #4b5563"}}
+                            style={{fontSize: badgeFontSize, borderRadius: "15px", border: "1px solid #4b5563"}}
                         >
                             📅 {experience.period}
                         </span>
                     </div>
 
-                    <p className="text-white mb-4" style={{lineHeight: "1.6", fontSize: "1rem"}}>
+                    <p className="text-white mb-4" style={{lineHeight: "1.6", fontSize: descriptionFontSize}}>
                         {experience.description}
                     </p>
 
                     {/* Skills */}
                     <div className="skills-section">
-                        <h6 className="fw-bold text-white mb-3">Key Areas:</h6>
+                        <h6 className="fw-bold text-white mb-3" style={{fontSize: keyAreasFontSize}}>Key Areas:</h6>
                         <div className="d-flex flex-wrap justify-content-center gap-2">
                             {experience.skills.map((skill, i) => (
                                 <SkillBadge
@@ -94,6 +106,7 @@ const ExperienceCard = ({experience, variants}) => {
                                     skill={skill}
                                     color={experience.color}
                                     index={i}
+                                    isMobile={isMobile}
                                 />
                             ))}
                         </div>

@@ -9,14 +9,29 @@ import {useResponsive, useResponsiveFontSize, useResponsiveClassName} from "../h
 const Skills = () => {
     const {isMobile} = useResponsive();
 
-    const fontSize = useResponsiveFontSize({
-        xs: "1em",
+    const iconFontSize = useResponsiveFontSize({
+        xs: "1.2em",
         md: "2em",
     });
 
-    const skillCardClassName = useResponsiveClassName({
-        xs: "col-12 col-md-4 col-lg-3 p-3",
-        md: "mt-3"
+    const titleFontSize = useResponsiveFontSize({
+        xs: "1.8rem",
+        md: "2.5rem",
+    });
+
+    const subtitleFontSize = useResponsiveFontSize({
+        xs: "0.9rem",
+        md: "1.1rem",
+    });
+
+    const cardTitleFontSize = useResponsiveFontSize({
+        xs: "1rem",
+        md: "1.3rem",
+    });
+
+    const skillLabelFontSize = useResponsiveFontSize({
+        xs: "0.7rem",
+        md: "0.8rem",
     });
 
     const skillCategories = [
@@ -32,7 +47,7 @@ const Skills = () => {
         },
         {
             title: "Desktop / Mobile",
-            progress: 60,
+            progress: 80,
             skills: [
                 {name: "java", color: "orange", label: "Java"},
                 {name: "python", color: "blue", label: "Python"},
@@ -90,10 +105,10 @@ const Skills = () => {
                     transition={{duration: 0.6}}
                     viewport={{once: true}}
                 >
-                    <h2 className="text-white fw-bold mb-3" style={{fontSize: "2.5rem"}}>
+                    <h2 className="text-white fw-bold mb-3" style={{fontSize: titleFontSize}}>
                         Skills & Technologies
                     </h2>
-                    <p className="text-white-50" style={{fontSize: "1.1rem"}}>
+                    <p className="text-white-50" style={{fontSize: subtitleFontSize}}>
                         Technologies I work with
                     </p>
                 </motion.div>
@@ -119,14 +134,14 @@ const Skills = () => {
                                 style={{
                                     background: "rgba(255, 255, 255, 0.1)",
                                     borderRadius: "20px",
-                                    padding: "2rem",
+                                    padding: isMobile ? "1.5rem" : "2rem",
                                     backdropFilter: "blur(10px)",
                                     border: "1px solid rgba(255, 255, 255, 0.2)",
-                                    minHeight: "280px"
+                                    minHeight: isMobile ? "240px" : "280px"
                                 }}
                             >
                                 <div className="text-center">
-                                    <h6 className="fw-bold text-white mb-3" style={{fontSize: "1.3rem"}}>
+                                    <h6 className="fw-bold text-white mb-3" style={{fontSize: cardTitleFontSize}}>
                                         {category.title}
                                     </h6>
 
@@ -158,7 +173,8 @@ const Skills = () => {
                                     </div>
 
                                     {/* Skills Icons */}
-                                    <div className="d-flex flex-wrap justify-content-center align-items-center gap-3">
+                                    <div
+                                        className={`d-flex flex-wrap justify-content-center align-items-center ${isMobile ? 'gap-2' : 'gap-3'}`}>
                                         {category.skills.map((skill) => (
                                             <motion.div
                                                 key={skill.name}
@@ -169,11 +185,11 @@ const Skills = () => {
                                                 <Icon
                                                     name={skill.name}
                                                     color={skill.color}
-                                                    fontSize={fontSize}
+                                                    fontSize={iconFontSize}
                                                 />
                                                 <p
                                                     className="mt-2 mb-0 text-white-50 small"
-                                                    style={{fontSize: "0.8rem"}}
+                                                    style={{fontSize: skillLabelFontSize}}
                                                 >
                                                     {skill.label}
                                                 </p>
