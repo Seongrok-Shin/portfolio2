@@ -1,14 +1,17 @@
 ﻿import React from "react";
 import { motion } from "framer-motion";
 
-const SkillBadge = ({ skill, color, index = 0 }) => {
+const SkillBadge = ({ skill, color, index = 0, isMobile = false }) => {
+    const fontSize = isMobile ? "0.7rem" : "0.8rem";
+    const padding = isMobile ? "4px 10px" : "5px 12px";
+
     return (
         <motion.span
             className="badge bg-dark text-light"
             style={{
-                fontSize: "0.8rem",
+                fontSize: fontSize,
                 borderRadius: "12px",
-                padding: "5px 12px",
+                padding: padding,
                 border: "1px solid #6b7280"
             }}
             whileHover={{

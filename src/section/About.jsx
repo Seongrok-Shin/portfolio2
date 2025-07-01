@@ -6,8 +6,41 @@ import 'dotenv/config';
 import TypeAnimation from "../components/Typing";
 import Icon from "../icon/Icon";
 import profile from "../assets/image0.gif";
+import {useResponsive, useResponsiveFontSize} from "../hooks/useResponsive";
 
 export default function About() {
+    const {isMobile} = useResponsive();
+
+    const profileImageSize = useResponsiveFontSize({
+        xs: "120px",
+        md: "150px",
+    });
+
+    const iconSize = useResponsiveFontSize({
+        xs: "1em",
+        md: "1.2em",
+    });
+
+    const buttonFontSize = useResponsiveFontSize({
+        xs: "0.9rem",
+        md: "1rem",
+    });
+
+    const buttonHeight = useResponsiveFontSize({
+        xs: "45px",
+        md: "50px",
+    });
+
+    const buttonWidth = useResponsiveFontSize({
+        xs: "140px",
+        md: "160px",
+    });
+
+    const socialIconSize = useResponsiveFontSize({
+        xs: "40px",
+        md: "50px",
+    });
+
     const toggleResume = () => {
         window.open(process.env.REACT_APP_CV, "_blank");
     };
@@ -26,8 +59,8 @@ export default function About() {
                 <div
                     className="position-absolute rounded-circle"
                     style={{
-                        width: "300px",
-                        height: "300px",
+                        width: isMobile ? "200px" : "300px",
+                        height: isMobile ? "200px" : "300px",
                         background: "linear-gradient(45deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))",
                         top: "10%",
                         right: "10%",
@@ -37,8 +70,8 @@ export default function About() {
                 <div
                     className="position-absolute rounded-circle"
                     style={{
-                        width: "200px",
-                        height: "200px",
+                        width: isMobile ? "120px" : "200px",
+                        height: isMobile ? "120px" : "200px",
                         background: "linear-gradient(45deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005))",
                         bottom: "20%",
                         left: "5%",
@@ -72,8 +105,8 @@ export default function About() {
                                     alt="Avatar"
                                     className="rounded-circle"
                                     style={{
-                                        width: "150px",
-                                        height: "150px",
+                                        width: profileImageSize,
+                                        height: profileImageSize,
                                         objectFit: "cover",
                                         border: "3px solid rgba(255,255,255,0.1)"
                                     }}
@@ -81,11 +114,11 @@ export default function About() {
                                 <div
                                     className="position-absolute rounded-circle"
                                     style={{
-                                        width: "20px",
-                                        height: "20px",
+                                        width: isMobile ? "16px" : "20px",
+                                        height: isMobile ? "16px" : "20px",
                                         background: "#00ff88",
-                                        bottom: "15px",
-                                        right: "15px",
+                                        bottom: isMobile ? "12px" : "15px",
+                                        right: isMobile ? "12px" : "15px",
                                         border: "3px solid #1a1a1a",
                                         boxShadow: "0 0 15px rgba(0,255,136,0.5)"
                                     }}
@@ -105,7 +138,7 @@ export default function About() {
                                     className="fw-bold mb-0"
                                     style={{
                                         fontFamily: "'Inter', sans-serif",
-                                        fontSize: "clamp(2.5rem, 5vw, 4rem)",
+                                        fontSize: isMobile ? "clamp(2rem, 8vw, 2.5rem)" : "clamp(2.5rem, 5vw, 4rem)",
                                         background: "linear-gradient(135deg, #ffffff 0%, #e0e0e0 100%)",
                                         WebkitBackgroundClip: "text",
                                         WebkitTextFillColor: "transparent",
@@ -140,7 +173,7 @@ export default function About() {
 
                         {/* Social icons with modern design */}
                         <motion.div
-                            className="d-flex justify-content-center align-items-center gap-3 mb-5"
+                            className={`d-flex justify-content-center align-items-center ${isMobile ? 'gap-2' : 'gap-3'} mb-5`}
                             initial={{opacity: 0, y: 20}}
                             animate={{opacity: 1, y: 0}}
                             transition={{delay: 0.9, duration: 0.8}}
@@ -164,8 +197,8 @@ export default function About() {
                                         rel="noreferrer"
                                         className="d-flex align-items-center justify-content-center"
                                         style={{
-                                            width: "50px",
-                                            height: "50px",
+                                            width: socialIconSize,
+                                            height: socialIconSize,
                                             borderRadius: "12px",
                                             background: "rgba(255,255,255,0.05)",
                                             backdropFilter: "blur(10px)",
@@ -184,7 +217,7 @@ export default function About() {
                                             e.target.style.boxShadow = "none";
                                         }}
                                     >
-                                        <Icon color="#ffffff" fontSize="1.2em" name={social.name}/>
+                                        <Icon color="#ffffff" fontSize={iconSize} name={social.name}/>
                                     </a>
                                 </motion.div>
                             ))}
@@ -209,9 +242,9 @@ export default function About() {
                                     color: "#1a1a1a",
                                     fontFamily: "'Inter', sans-serif",
                                     fontWeight: "600",
-                                    fontSize: "1rem",
-                                    height: "50px",
-                                    width: "160px",
+                                    fontSize: buttonFontSize,
+                                    height: buttonHeight,
+                                    width: buttonWidth,
                                     border: "none",
                                     borderRadius: "25px",
                                     transition: "all 0.3s ease",
@@ -231,11 +264,9 @@ export default function About() {
                                 />
                             </motion.button>
                         </motion.div>
-
                     </div>
                 </div>
             </div>
-
         </section>
     );
-};
+}
