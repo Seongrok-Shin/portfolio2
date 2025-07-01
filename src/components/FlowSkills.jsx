@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React, {useState, useEffect} from "react";
+import {motion, AnimatePresence} from "framer-motion";
 import Icon from "../icon/Icon";
 import "./../scss/custom.scss";
+import {useResponsiveFontSize} from "../hooks/useResponsive";
 
 const FlowSkills = () => {
     const [iconNames, setIconNames] = useState([
@@ -10,9 +11,10 @@ const FlowSkills = () => {
         "firebase", "mysql", "r", "python", "rstudio", "git", "github"
     ]);
 
-    const isMobile = useCallback(() => {
-        return window.innerWidth < 768;
-    }, []);
+    const fontSize = useResponsiveFontSize({
+        xs: "1em",
+        md: "2em"
+    });
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -33,20 +35,41 @@ const FlowSkills = () => {
                     <motion.div
                         key={name}
                         className="icon-container"
-                        initial={{ opacity: 0, x: -200 }}
-                        animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
-                        exit={{ opacity: 0, x: 200, transition: { duration: 0.5 } }}
-                        transition={{ delay: index * 0.5, duration: 1, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
+                        initial={{opacity: 0, x: -200}}
+                        animate={{opacity: 1, x: 0, transition: {duration: 0.5}}}
+                        exit={{opacity: 0, x: 200, transition: {duration: 0.5}}}
+                        transition={{
+                            delay: index * 0.5,
+                            duration: 1,
+                            repeat: Infinity,
+                            repeatType: "reverse",
+                            ease: "linear"
+                        }}
                     >
                         <Icon
                             name={name}
                             color={{
-                                html: "orange", javascript: "yellow", react: "skyblue", expo: "black",
-                                reactnative: "skyblue", next: "black", bootstrap: "purple", tailwindcss: "skyblue",
-                                node: "green", java: "orange", php: "purple", mongo: "green", firebase: "orange",
-                                mysql: "blue", r: "skyblue", python: "blue", rstudio: "skyblue", git: "orange", github: "black"
+                                html: "orange",
+                                javascript: "yellow",
+                                react: "skyblue",
+                                expo: "black",
+                                reactnative: "skyblue",
+                                next: "black",
+                                bootstrap: "purple",
+                                tailwindcss: "skyblue",
+                                node: "green",
+                                java: "orange",
+                                php: "purple",
+                                mongo: "green",
+                                firebase: "orange",
+                                mysql: "blue",
+                                r: "skyblue",
+                                python: "blue",
+                                rstudio: "skyblue",
+                                git: "orange",
+                                github: "black"
                             }[name]}
-                            fontSize={isMobile() ? "1em" : "2em"}
+                            fontSize={fontSize}
                         />
                     </motion.div>
                 ))}
