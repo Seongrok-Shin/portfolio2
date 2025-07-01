@@ -5,6 +5,8 @@ import GreenKiwi from "../assets/greenkiwi.jpg";
 import Caito from "../assets/caito.jpg";
 import Pepe from "../assets/pepe.jpg";
 import NetflixReview from "../assets/netflixReview.PNG";
+import BlogPlatform from "../assets/blog.PNG";
+import ToDoList from "../assets/todolist.PNG";
 
 export const projectsData = [
         {
@@ -88,15 +90,15 @@ export const projectsData = [
             ],
             links: [
                 {
-                    type: "Website",
-                    url: "https://greenkiwi.vercel.app/",
-                    icon: "web",
-                    color: "#ffffff"
+                    type: "YouTube",
+                    url: "https://www.youtube.com/watch?v=FbNKT36Ebek",
+                    icon: "youtube",
+                    color: "red"
                 },
                 {
-                    type: "GitHub",
-                    url: "https://github.com/uoa-compsci399-s2-2023/capstone-project-team-34-code-critters",
-                    icon: "github",
+                    type: "Website",
+                    url: "https://2023.hackerspace.govhack.org/projects/green_kiwi",
+                    icon: "web",
                     color: "#ffffff"
                 }
             ]
@@ -104,7 +106,7 @@ export const projectsData = [
         {
             id: 5,
             title: "Caito",
-            date: "Dec 2023 – Feb 2024",
+            date: "Mar 2023 – Dec 2023",
             image: Caito,
             technologies: ["React", "Spring Boot"],
             description: [
@@ -112,93 +114,145 @@ export const projectsData = [
                 "Integrated with Firebase for authentication and serverless user data storage.",
                 "An educational website utilising JWT as an authentication.",
                 "Also there is a dashboard that shows charts with the component system."
-    ],
-    links: [
-        {
-            type: "",
-            url: "",
-            icon: "",
-            color: ""
+            ],
+            links: [
+                {
+                    type: "",
+                    url: "",
+                    icon: "",
+                    color: ""
+                },
+                {
+                    type: "",
+                    url: "",
+                    icon: "",
+                    color: ""
+                }
+            ]
         },
         {
-            type: "",
-            url: "",
-            icon: "",
-            color: ""
+            id: 6,
+            title:
+                "Pepe",
+            date:
+                "Aug 2024",
+            image:
+            Pepe,
+            technologies:
+                ["React", "TypeScript"],
+            description:
+                [
+                    "Built a Chrome extension to help people focus on their work or study.",
+                    "Worked as a Front-end engineer.",
+                    "I implemented overlay dialogues on the web browser that pops up when a certain event is fired."
+                ],
+            links:
+                [
+                    {
+                        type: "GitHub",
+                        url: "https://github.com/Seongrok-Shin/terrible-pepe",
+                        icon: "github",
+                        color: "#ffffff"
+                    },
+                    {
+                        type: "YouTube",
+                        url: "https://www.youtube.com/watch?v=QtwVVHi6JlA",
+                        icon: "youtube",
+                        color: "red"
+                    }
+                ]
         }
-    ]
-},
-{
-    id: 6,
-        title
-:
-    "Pepe",
-        date
-:
-    "Mar 2024 – Jun 2024",
-        image
-:
-    Pepe,
-        technologies
-:
-    ["React", "TypeScript"],
-        description
-:
-    [
-        "Built a Chrome extension to help people focus on their work or study.",
-        "Worked as a Front-end engineer.",
-        "I implemented overlay dialogues on the web browser that pops up when a certain event is fired."
-    ],
-        links
-:
-    [
+        ,
         {
-            type: "GitHub",
-            url: "https://github.com/Seongrok-Shin/terrible-pepe",
-            icon: "github",
-            color: "#ffffff"
+            id: 7,
+            title:
+                "Netflix Review",
+            date:
+                "Dec 2024 – Feb 2025",
+            image:
+            NetflixReview,
+            technologies:
+                ["React", "TypeScript", "AWS", "Vite", "Python", "Terraform", "FastAPI"],
+            description:
+                [
+                    "Developed a dashboard website to display Netflix app reviews, using React for the frontend and Python for the backend.",
+                    "Designed the website’s UI with Material-UI (MUI) for a modern and responsive interface.",
+                    "Utilized S3 for static hosting and data storage, ECS for managing Dockerized services, and Lambda for serverless functions.",
+                    "Deployed the website on AWS."
+                ],
+            links:
+                [
+                    {
+                        type: "Website",
+                        url: "http://clearvoice-demo.s3-website.ap-southeast-4.amazonaws.com/",
+                        icon: "web",
+                        color: "#ffffff"
+                    }
+                ]
         },
         {
-            type: "YouTube",
-            url: "https://www.youtube.com/watch?v=QtwVVHi6JlA",
-            icon: "youtube",
-            color: "red"
-        }
-    ]
-}
-,
-{
-    id: 7,
-        title
-:
-    "Netflix Review",
-        date
-:
-    "Nov 2024 – Present",
-        image
-:
-    NetflixReview,
-        technologies
-:
-    ["React", "TypeScript", "AWS", "Vite", "Python", "Terraform", "FastAPI"],
-        description
-:
-    [
-        "Developed a dashboard website to display Netflix app reviews, using React for the frontend and Python for the backend.",
-        "Designed the website’s UI with Material-UI (MUI) for a modern and responsive interface.",
-        "Utilized S3 for static hosting and data storage, ECS for managing Dockerized services, and Lambda for serverless functions.",
-        "Deployed the website on AWS."
-    ],
-        links
-:
-    [
+            id: 8,
+            title:
+                "Blog Platform",
+            date:
+                "Feb 2025",
+            image:
+            BlogPlatform,
+            technologies:
+                ["Next", "TypeScript", "Neon", "GitHub Copilot", "Vercel"],
+            description:
+                [
+                    "Developed a modern blog editor application featuring rich text formatting for an intuitive content creation experience.",
+                    "Implemented a responsive design using Tailwind CSS, ensuring a seamless and visually appealing interface across all devices.",
+                    "Integrated robust authentication and user management functionalities to provide secure access and personalized user experiences.",
+                ],
+            links:
+                [
+                    {
+                        type: "Website",
+                        url: "https://blog-platform-rose-nu.vercel.app/",
+                        icon: "web",
+                        color: "#ffffff"
+                    },
+                    {
+                        type: "GitHub",
+                        url: "https://github.com/Seongrok-Shin/blog-platform",
+                        icon: "github",
+                        color: "#ffffff"
+                    }
+                ]
+        },
         {
-            type: "Website",
-            url: "http://clearvoice-demo.s3-website.ap-southeast-4.amazonaws.com/",
-            icon: "web",
-            color: "#ffffff"
+            id: 9,
+            title:
+                "Todo Web App",
+            date:
+                "June 2025",
+            image:
+            ToDoList,
+            technologies:
+                ["ASP.NET Core", "Blazor", "Bootstrap", "Supabase", "GitHub Copilot", "Render"],
+            description:
+                [
+                    "Developed a full-stack web application for personal TODO management, featuring secure user authentication and real-time data synchronization.",
+                    "Implemented CRUD functionality for personal TODO items, allowing users to create, read, update, and delete tasks efficiently.",
+                    "Enabled category-based organization and status tracking (TODO, IN PROGRESS, DONE) for comprehensive task management.",
+                ],
+            links:
+                [
+                    {
+                        type: "Website",
+                        url: "https://todo-list-wbav.onrender.com/",
+                        icon: "web",
+                        color: "#ffffff"
+                    },
+                    {
+                        type: "GitHub",
+                        url: "https://github.com/Seongrok-Shin/todo-list",
+                        icon: "github",
+                        color: "#ffffff"
+                    }
+                ]
         }
     ]
-}
-]
 ;

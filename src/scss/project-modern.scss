@@ -271,7 +271,7 @@
     grid-template-columns: 1fr;
     gap: 20px;
     padding: 20px 15px;
-    text-align: center;
+    text-align: start;
     min-height: auto;
   }
 
@@ -320,6 +320,7 @@
   .project-content {
     padding: 15px 10px;
     min-height: auto;
+    text-align: start;
     gap: 15px;
   }
 
