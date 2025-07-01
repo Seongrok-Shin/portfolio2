@@ -1,9 +1,12 @@
-﻿import React, {useState, useEffect} from 'react';
+﻿import React, {useState, useEffect, useCallback, useMemo} from 'react';
 import ModernProjectCard from './ProjectCard';
 
-const ProjectCarousel = ({projects}) => {
+const ProjectCarousel = React.memo(({projects}) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isAutoPlay, setIsAutoPlay] = useState(true);
+
+    // Memoize projects length to prevent recalculation
+    const projectsLength = useMemo(() => projects.length, [projects.length]);
 
     // 자동 슬라이드 기능
     useEffect(() => {
@@ -11,41 +14,49 @@ const ProjectCarousel = ({projects}) => {
 
         const interval = setInterval(() => {
             setCurrentIndex((prevIndex) =>
-                prevIndex === projects.length - 1 ? 0 : prevIndex + 1
+                prevIndex === projectsLength - 1 ? 0 : prevIndex + 1
             );
         }, 5000);
 
         return () => clearInterval(interval);
-    }, [projects.length, isAutoPlay]);
+    }, [projectsLength, isAutoPlay]);
 
-    const goToSlide = (index) => {
+    // Memoize navigation functions to prevent re-renders
+    const goToSlide = useCallback((index) => {
         setCurrentIndex(index);
         setIsAutoPlay(false);
         // 5초 후 자동 재생 재개
         setTimeout(() => setIsAutoPlay(true), 10000);
-    };
+    }, []);
 
-    const goToPrevious = () => {
-        setCurrentIndex(currentIndex === 0 ? projects.length - 1 : currentIndex - 1);
+    const goToPrevious = useCallback(() => {
+        setCurrentIndex(currentIndex === 0 ? projectsLength - 1 : currentIndex - 1);
         setIsAutoPlay(false);
         setTimeout(() => setIsAutoPlay(true), 10000);
-    };
+    }, [currentIndex, projectsLength]);
 
-    const goToNext = () => {
-        setCurrentIndex(currentIndex === projects.length - 1 ? 0 : currentIndex + 1);
+    const goToNext = useCallback(() => {
+        setCurrentIndex(currentIndex === projectsLength - 1 ? 0 : currentIndex + 1);
         setIsAutoPlay(false);
         setTimeout(() => setIsAutoPlay(true), 10000);
-    };
+    }, [currentIndex, projectsLength]);
+
+    const toggleAutoPlay = useCallback(() => {
+        setIsAutoPlay(!isAutoPlay);
+    }, [isAutoPlay]);
+
+    // Memoize carousel style to prevent recalculation
+    const carouselStyle = useMemo(() => ({
+        transform: `translateX(-${currentIndex * 100}%)`,
+        transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)'
+    }), [currentIndex]);
 
     return (
         <div className="modern-carousel">
             <div className="carousel-container">
                 <div
                     className="carousel-slides"
-                    style={{
-                        transform: `translateX(-${currentIndex * 100}%)`,
-                        transition: 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)'
-                    }}
+                    style={carouselStyle}
                 >
                     {projects.map((project, index) => (
                         <div key={project.id} className="carousel-slide">
@@ -96,22 +107,13 @@ const ProjectCarousel = ({projects}) => {
             {/* 자동재생 컨트롤 */}
             <button
                 className="autoplay-control"
-                onClick={() => setIsAutoPlay(!isAutoPlay)}
+                onClick={toggleAutoPlay}
                 aria-label={isAutoPlay ? 'Pause autoplay' : 'Resume autoplay'}
             >
-                {isAutoPlay ? (
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <rect x="6" y="4" width="4" height="16" fill="currentColor"/>
-                        <rect x="14" y="4" width="4" height="16" fill="currentColor"/>
-                    </svg>
-                ) : (
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                        <polygon points="5,3 19,12 5,21" fill="currentColor"/>
-                    </svg>
-                )}
+                {isAutoPlay ? '⏸️' : '▶️'}
             </button>
         </div>
     );
-};
+});
 
 export default ProjectCarousel;

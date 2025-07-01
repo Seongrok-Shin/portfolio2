@@ -2,7 +2,7 @@
 import Icon from '../icon/Icon';
 import {useResponsiveFontSize} from '../hooks/useResponsive';
 
-const ModernProjectCard = ({project, isActive}) => {
+const ModernProjectCard = React.memo(({project, isActive}) => {
     const fontSize = useResponsiveFontSize({
         xs: "1.5em",
         md: "2.5em"
@@ -64,6 +64,6 @@ const ModernProjectCard = ({project, isActive}) => {
             </div>
         </div>
     );
-};
+});
 
 export default ModernProjectCard;

@@ -18,7 +18,7 @@ const Footer = () => {
         <footer
             className="position-relative overflow-hidden"
             style={{
-                background: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #0f0f0f 100%)",
+                background: "linear-gradient(135deg, #3a3a3a 0%, #5a5a5a 50%, #3a3a3a 100%)",
                 borderTop: "1px solid rgba(255,255,255,0.1)"
             }}
         >

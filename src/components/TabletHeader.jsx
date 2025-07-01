@@ -6,7 +6,7 @@ import Logo from "../assets/logo.png";
 
 const TabletHeader = () => {
     const [isScrolled, setIsScrolled] = useState(false);
-    const [activeSection, setActiveSection] = useState('about');
+    const [activeSection, setActiveSection] = useState(''); // 초기값을 빈 문자열로 변경
 
     // 스크롤 감지로 헤더 스타일 변경 및 활성 섹션 추적
     useEffect(() => {
@@ -17,7 +17,7 @@ const TabletHeader = () => {
             const sections = ['about', 'skills', 'experience', 'project'];
             const scrollPosition = window.scrollY + window.innerHeight / 3;
 
-            let currentSection = 'about';
+            let currentSection = 'about'; // 기본값을 about으로 설정
 
             for (let i = sections.length - 1; i >= 0; i--) {
                 const section = sections[i];
@@ -33,19 +33,21 @@ const TabletHeader = () => {
                 }
             }
 
-            // 페이지 하단에 있을 때 마지막 섹션 활성화
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight;
-            const scrollTop = window.scrollY;
+            // 페이지 하단에 있을 때 마지막 섹션 활성화 (실제 스크롤이 발생했을 때만)
+            if (window.scrollY > 100) { // 스크롤이 실제로 발생했을 때만 하단 감지
+                const windowHeight = window.innerHeight;
+                const documentHeight = document.documentElement.scrollHeight;
+                const scrollTop = window.scrollY;
 
-            if (scrollTop + windowHeight >= documentHeight - 50) {
-                currentSection = 'project';
+                if (scrollTop + windowHeight >= documentHeight - 50) {
+                    currentSection = 'project';
+                }
             }
 
             setActiveSection(currentSection);
         };
 
-        handleScroll();
+        // 초기 로드 시에는 스크롤 이벤트만 등록
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useMemo} from "react";
 import FadeText from "../components/FadeInText";
 import {motion} from "framer-motion";
 import '../scss/custom.scss';
@@ -7,34 +7,49 @@ import TypeAnimation from "../components/Typing";
 import Icon from "../icon/Icon";
 import profile from "../assets/image0.gif";
 import {useResponsive, useResponsiveFontSize} from "../hooks/useResponsive";
+import {usePerformance} from "../hooks/usePerformance";
 
-export default function About() {
+const About = React.memo(() => {
     const {isMobile} = useResponsive();
+    const {useMemoizedStyles} = usePerformance();
 
-    const profileImageSize = useResponsiveFontSize({
-        xs: "120px",
-        md: "150px",
-    });
+    // Memoize responsive values
+    const responsiveValues = useMemo(() => ({
+        profileImageSize: {
+            xs: "120px",
+            md: "150px",
+        },
+        iconSize: {
+            xs: "1em",
+            md: "1.2em",
+        },
+        buttonFontSize: {
+            xs: "0.9rem",
+            md: "1rem",
+        },
+        buttonHeight: {
+            xs: "45px",
+            md: "50px",
+        },
+        buttonWidth: {
+            xs: "140px",
+            md: "160px",
+        }
+    }), []);
 
-    const iconSize = useResponsiveFontSize({
-        xs: "1em",
-        md: "1.2em",
-    });
+    const profileImageSize = useResponsiveFontSize(responsiveValues.profileImageSize);
+    const iconSize = useResponsiveFontSize(responsiveValues.iconSize);
+    const buttonFontSize = useResponsiveFontSize(responsiveValues.buttonFontSize);
+    const buttonHeight = useResponsiveFontSize(responsiveValues.buttonHeight);
+    const buttonWidth = useResponsiveFontSize(responsiveValues.buttonWidth);
 
-    const buttonFontSize = useResponsiveFontSize({
-        xs: "0.9rem",
-        md: "1rem",
-    });
-
-    const buttonHeight = useResponsiveFontSize({
-        xs: "45px",
-        md: "50px",
-    });
-
-    const buttonWidth = useResponsiveFontSize({
-        xs: "140px",
-        md: "160px",
-    });
+    // Memoize styles to prevent recalculation
+    const sectionStyles = useMemoizedStyles({
+        minHeight: "100vh",
+        background: "linear-gradient(135deg, #3a3a3a 0%, #5a5a5a 50%, #3a3a3a 100%)",
+        position: "relative",
+        overflow: "hidden"
+    }, []);
 
     const socialIconSize = useResponsiveFontSize({
         xs: "40px",
@@ -47,13 +62,10 @@ export default function About() {
 
     return (
         <section
-            className="container-fluid d-flex flex-column justify-content-center align-items-center position-relative overflow-hidden"
             id="about"
-            style={{
-                height: "100vh",
-                background: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #0f0f0f 100%)"
-            }}>
-
+            className="d-flex align-items-center justify-content-center"
+            style={sectionStyles}
+        >
             {/* Background decorative elements */}
             <div className="position-absolute w-100 h-100" style={{zIndex: 1}}>
                 <div
@@ -102,12 +114,13 @@ export default function About() {
                             >
                                 <img
                                     src={profile}
-                                    alt="Avatar"
+                                    alt="Profile"
                                     className="rounded-circle"
+                                    loading="eager"
                                     style={{
                                         width: profileImageSize,
                                         height: profileImageSize,
-                                        objectFit: "cover",
+                                        objectFit: 'cover',
                                         border: "3px solid rgba(255,255,255,0.1)"
                                     }}
                                 />
@@ -269,4 +282,6 @@ export default function About() {
             </div>
         </section>
     );
-}
+});
+
+export default About;
