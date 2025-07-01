@@ -286,12 +286,12 @@ nav a:hover::after {
 
 .card {
   .card-body {
-    @media screen and (max-width: 768px), (max-height: 601) {
+    @media screen and (max-width: 768px), (max-height: 601px) {
       padding: 20px;
     }
 
     h6 {
-      @media screen and (max-width: 768px), (max-height: 601) {
+      @media screen and (max-width: 768px), (max-height: 601px) {
         font-size: 10px;
       }
       font-size: 16px;
@@ -310,14 +310,14 @@ nav a:hover::after {
   margin-top: 20px;
 }
 
-@media screen and (max-width: 767px), (max-height: 601) {
+@media screen and (max-width: 767px), (max-height: 601px) {
   .photo {
     margin-top: 100px;
   }
 }
 
 .carousel-text-head {
-  @media screen and (max-width: 767px), (max-height: 601) {
+  @media screen and (max-width: 767px), (max-height: 601px) {
     font-size: 16px;
   }
   font-size: 24px;
@@ -328,7 +328,7 @@ nav a:hover::after {
 }
 
 .carousel-text-subhead {
-  @media screen and (max-width: 767px), (max-height: 601) {
+  @media screen and (max-width: 767px), (max-height: 601px) {
     font-size: 14px;
   }
 
@@ -340,7 +340,7 @@ nav a:hover::after {
 }
 
 .carousel-text-body {
-  @media screen and (max-width: 767px), (max-height: 601) {
+  @media screen and (max-width: 767px), (max-height: 601px) {
     font-size: 10px;
   }
 
@@ -352,7 +352,7 @@ nav a:hover::after {
 }
 
 .project-section {
-  @media screen and (max-width: 767px), (max-height: 601) {
+  @media screen and (max-width: 767px), (max-height: 601px) {
     height: 100vh;
     width: 100vw;
   }
@@ -510,4 +510,9 @@ button:active {
   }
 }
 
+// Utilities
+@import "~bootstrap/scss/utilities/api";
 // scss-docs-end import-stack
+
+// Custom styles imports
+@import "project-modern";
