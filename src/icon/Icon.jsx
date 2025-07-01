@@ -11,22 +11,24 @@ import {
   FaHtml5,
 } from "react-icons/fa";
 import {
+  SiCsharp, SiDotnet,
   SiExpo,
   SiFirebase,
   SiJavascript,
   SiMysql,
-  SiR,
+  SiR, SiRazorpay,
   SiRstudio,
   SiTailwindcss,
 } from "react-icons/si";
-import { TbBrandNextjs, TbBrandReactNative } from "react-icons/tb";
+import {TbBrandNextjs, TbBrandReactNative, TbRazor} from "react-icons/tb";
 import { FaC, FaDocker, FaNodeJs, FaPhp } from "react-icons/fa6";
 import { motion } from "framer-motion";
-import { CgMenuMotion } from "react-icons/cg";
+import {CgMenuMotion, CgShapeCircle} from "react-icons/cg";
 import { DiMongodb } from "react-icons/di";
 import { FcNext, FcPrevious } from "react-icons/fc";
 import { FaYoutube } from "react-icons/fa6";
 import { BsBrowserChrome } from "react-icons/bs";
+import {GiRazor} from "react-icons/gi";
 const iconMap = {
   github: <FaGithub />,
   linkedin: <FaLinkedin />,
@@ -58,6 +60,7 @@ const iconMap = {
   nextArrow: <FcNext />,
   web: <BsBrowserChrome />,
   youtube: <FaYoutube />,
+  dotnet: <SiDotnet />,
 };
 
 export default function Icon({ hoverColor, color, fontSize, name, border }) {
