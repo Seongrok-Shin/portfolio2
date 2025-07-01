@@ -33,7 +33,7 @@ export default function TypeAnimation() {
           speed={50} // Add controlled speed
           style={{
             fontFamily: "'Open Sans', sans-serif",
-            color: "#666",
+            color: "#ffffff",
             display: "inline-block", // Helps with layout
           }}
           className="type-text"
