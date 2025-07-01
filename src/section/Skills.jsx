@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useMemo} from "react";
 import {motion} from "framer-motion";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
@@ -6,35 +6,41 @@ import "./../scss/custom.scss";
 import Icon from "../icon/Icon";
 import {useResponsive, useResponsiveFontSize, useResponsiveClassName} from "../hooks/useResponsive";
 
-const Skills = () => {
+const Skills = React.memo(() => {
     const {isMobile} = useResponsive();
 
-    const iconFontSize = useResponsiveFontSize({
-        xs: "1.2em",
-        md: "2em",
-    });
+    // Memoize font sizes to prevent recalculation
+    const fontSizes = useMemo(() => ({
+        icon: {
+            xs: "1.2em",
+            md: "2em",
+        },
+        title: {
+            xs: "1.8rem",
+            md: "2.5rem",
+        },
+        subtitle: {
+            xs: "0.9rem",
+            md: "1.1rem",
+        },
+        cardTitle: {
+            xs: "1rem",
+            md: "1.3rem",
+        },
+        skillLabel: {
+            xs: "0.7rem",
+            md: "0.8rem",
+        }
+    }), []);
 
-    const titleFontSize = useResponsiveFontSize({
-        xs: "1.8rem",
-        md: "2.5rem",
-    });
+    const iconFontSize = useResponsiveFontSize(fontSizes.icon);
+    const titleFontSize = useResponsiveFontSize(fontSizes.title);
+    const subtitleFontSize = useResponsiveFontSize(fontSizes.subtitle);
+    const cardTitleFontSize = useResponsiveFontSize(fontSizes.cardTitle);
+    const skillLabelFontSize = useResponsiveFontSize(fontSizes.skillLabel);
 
-    const subtitleFontSize = useResponsiveFontSize({
-        xs: "0.9rem",
-        md: "1.1rem",
-    });
-
-    const cardTitleFontSize = useResponsiveFontSize({
-        xs: "1rem",
-        md: "1.3rem",
-    });
-
-    const skillLabelFontSize = useResponsiveFontSize({
-        xs: "0.7rem",
-        md: "0.8rem",
-    });
-
-    const skillCategories = [
+    // Memoize skill categories to prevent unnecessary re-renders
+    const skillCategories = useMemo(() => [
         {
             title: "Web Development",
             progress: 80,
@@ -63,28 +69,30 @@ const Skills = () => {
                 {name: "python", color: "blue", label: "Python"},
             ],
         },
-    ];
+    ], []);
 
-    const containerVariants = {
-        hidden: {opacity: 0},
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2,
+    // Memoize animation variants to prevent recalculation
+    const animationVariants = useMemo(() => ({
+        container: {
+            hidden: {opacity: 0},
+            visible: {
+                opacity: 1,
+                transition: {
+                    staggerChildren: 0.2,
+                },
             },
         },
-    };
-
-    const cardVariants = {
-        hidden: {y: 20, opacity: 0},
-        visible: {
-            y: 0,
-            opacity: 1,
-            transition: {
-                duration: 0.5,
+        card: {
+            hidden: {y: 20, opacity: 0},
+            visible: {
+                y: 0,
+                opacity: 1,
+                transition: {
+                    duration: 0.5,
+                },
             },
-        },
-    };
+        }
+    }), []);
 
     return (
         <section
@@ -92,7 +100,7 @@ const Skills = () => {
             className="container-fluid d-flex flex-column justify-content-center align-items-center position-relative"
             style={{
                 minHeight: "100vh",
-                backgroundColor: "#222",
+                background: "linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)",
                 padding: "80px 0 60px 0",
                 overflow: "hidden"
             }}
@@ -115,7 +123,7 @@ const Skills = () => {
 
                 <motion.div
                     className="row g-4 justify-content-center"
-                    variants={containerVariants}
+                    variants={animationVariants.container}
                     initial="hidden"
                     whileInView="visible"
                     viewport={{once: true}}
@@ -125,7 +133,7 @@ const Skills = () => {
                         <motion.div
                             key={category.title}
                             className="col-12 col-md-6 col-lg-4"
-                            variants={cardVariants}
+                            variants={animationVariants.card}
                         >
                             <motion.div
                                 className="skill-card h-100"
@@ -204,6 +212,6 @@ const Skills = () => {
             </div>
         </section>
     );
-};
+});
 
 export default Skills;
