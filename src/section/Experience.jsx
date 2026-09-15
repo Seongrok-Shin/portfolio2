@@ -73,7 +73,7 @@ const Experience = React.memo(() => {
             id: 6,
             category: "Work Experience",
             title: "AGB Stone",
-            period: "May, 2025 - Present",
+            period: "May, 2025 - Aug, 2026",
             description: "Maintained and enhanced a production portal system for managing orders, inventory, and manufacturing progress.",
             icon: "💻",
             skills: ["Full-stack Development", ".NET", "Azure"],
